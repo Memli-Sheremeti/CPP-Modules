@@ -6,17 +6,15 @@
 #    By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 13:07:03 by mshereme          #+#    #+#              #
-#    Updated: 2024/02/19 11:11:47 by mshereme         ###   ########.fr        #
+#    Updated: 2024/03/07 12:02:42 by mshereme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	megaphone
 CC			=	c++
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-FILES		=	./megaphone \
-
-HEADERS		=	-I./include
+FILES		=	megaphone \
 
 SRCS		=	$(addsuffix .cpp, $(FILES))
 OBJS		=	$(SRCS:.cpp=.o)
@@ -24,20 +22,17 @@ OBJS		=	$(SRCS:.cpp=.o)
 all:	$(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.c
-	@$(CC) $(FLAGS) -c $(HEADERS) $< -o $@
-	@echo "Compiling $@"
+%.o: %.cpp
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJS)
-	@echo "Cleaned philo object files"
+	rm -rf $(OBJS)
 
 fclean: clean
-	@rm -rf $(NAME)
-	@echo "Cleaned philo"
+	rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY : megaphone all clean fclean re
+.PHONY : all clean fclean re
