@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:40:52 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/11 15:34:53 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:59:55 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 # include <iostream>
 # include <string>
 # include <string.h>
-#include <stdio.h>
-#include <iomanip>
+# include <stdio.h>
+# include <iomanip>
 
 class	Contact
 {
 	public:
 	Contact(void);
 	~Contact(void);
-	void		set_contact(void);
+	int			set_contact(void);
 	std::string	get_name(void);
 	std::string	get_last_name(void);
 	std::string	get_nickname(void);
@@ -42,4 +42,3 @@ class	Contact
 
 int	check_function(std::string str, int (*f)(int));
 #endif
-

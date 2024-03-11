@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:34:05 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/11 15:42:54 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:23:22 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ int	PhoneBook::get_nb_contact(void)
 	return (this->_nb_of_contact);
 }
 
-void	PhoneBook::ft_add_contact(void)
+int	PhoneBook::ft_add_contact(void)
 {
-	this->_contacts[this->_nb_of_contact % MAX_CONTACT].set_contact();
+	if (this->_contacts[this->_nb_of_contact % MAX_CONTACT].set_contact())
+		return (1);
 	this->set_nb_contact();
-	return ;
+	return (0);
 }
 
 std::string trunck_the_length(std::string str)
@@ -33,7 +34,24 @@ std::string trunck_the_length(std::string str)
 	return (str.substr(0, 9) + ".");
 }
 
-void	PhoneBook::ft_show_contact(void)
+void PhoneBook::display_contact(int index)
+{
+	std::string	str;
+
+	str = this->_contacts[index].get_name();
+	std::cout << std::setw(10) << trunck_the_length(str) << "|";
+	str = this->_contacts[index].get_last_name();
+	std::cout << std::setw(10) << trunck_the_length(str) << "|";
+	str = this->_contacts[index].get_nickname();
+	std::cout << std::setw(10) << trunck_the_length(str) << "|";
+	str = this->_contacts[index].get_phone_number();
+	std::cout << std::setw(10) << trunck_the_length(str) << "|";
+	str = this->_contacts[index].get_secret();
+	std::cout << std::setw(10) << trunck_the_length(str) << std::endl;
+	return ;
+}
+
+int	PhoneBook::ft_show_contact(void)
 {
 	int			i;
 	size_t		index;
@@ -42,17 +60,16 @@ void	PhoneBook::ft_show_contact(void)
 	if (this->get_nb_contact() == 0)
 	{
 		std::cout << "Nobody is in your Phone Book!" << std::endl;
-		return ;
+		return (0);
 	}
 	i = 0;
 	while (i < MAX_CONTACT && i < this->get_nb_contact())
 	{
-		std::cout << std::setw(10) << i + 1;
-		std::cout << std::setw(10) << " | ";
+		std::cout << std::setw(10) << i + 1 << "|";
 		str = this->_contacts[i % MAX_CONTACT].get_name();
-		std::cout << std::setw(10) << trunck_the_length(str) << " | ";
+		std::cout << std::setw(10) << trunck_the_length(str) << "|";
 		str = this->_contacts[i % MAX_CONTACT].get_last_name();
-		std::cout << std::setw(10) << trunck_the_length(str) << " | ";
+		std::cout << std::setw(10) << trunck_the_length(str) << "|";
 		str = this->_contacts[i % MAX_CONTACT].get_nickname();
 		std::cout << std::setw(10) << trunck_the_length(str) << std::endl;
 		i++;
@@ -61,21 +78,12 @@ void	PhoneBook::ft_show_contact(void)
 	{
 		std::cout << std::setw(10) << "Enter the index of the contact: ";
 		std::getline (std::cin, str);
-
+		if (!std::cin)
+			return (1);
 	} while (!(check_index(str, i)));
-
 	index = (str[0] - '0') - 1;
-	str = this->_contacts[index].get_name();
-	std::cout << std::setw(10) << trunck_the_length(str) << " | ";
-	str = this->_contacts[index].get_last_name();
-	std::cout << std::setw(10) << trunck_the_length(str) << " | ";
-	str = this->_contacts[index].get_nickname();
-	std::cout << std::setw(10) << trunck_the_length(str) << " | ";
-	str = this->_contacts[index].get_phone_number();
-	std::cout << std::setw(10) << trunck_the_length(str) << " | ";
-	str = this->_contacts[index].get_secret();
-	std::cout << std::setw(10) << trunck_the_length(str) << std::endl;
-	return ;
+	this->display_contact(index);
+	return (0);
 }
 
 void PhoneBook::set_nb_contact(void)

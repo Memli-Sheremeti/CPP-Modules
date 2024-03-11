@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:15:33 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/11 15:32:30 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:06:48 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,20 @@ int	main(void)
 	{
 		std::cout << std::setw(10) << "PHONE BOOK:\nEnter a command: ";
 		std::getline (std::cin, str);
-		if (str == "EXIT")
+		if (!std::cin)
+			return (1);
+		else if (str == "EXIT")
 			break ;
 		else if (str == "ADD")
-			book.ft_add_contact();
+		{
+			if (book.ft_add_contact())
+				return (1);
+		}
 		else if (str == "SEARCH")
-			book.ft_show_contact();
+		{
+			if (book.ft_show_contact())
+				return (1);
+		}
 		else
 			ft_display_posibility();
 	}

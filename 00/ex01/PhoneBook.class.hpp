@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:16:41 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/11 15:18:55 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:15:34 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ class PhoneBook
 	public:
 	PhoneBook(void);
 	~PhoneBook(void);
-	void	ft_add_contact(void);
-	void	ft_show_contact(void);
+	int		ft_add_contact(void);
+	int		ft_show_contact(void);
+	void	display_contact(int index);
 	int		get_nb_contact(void);
 	void	set_nb_contact(void);
 
