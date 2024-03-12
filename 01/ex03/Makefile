@@ -6,16 +6,18 @@
 #    By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 13:07:03 by mshereme          #+#    #+#              #
-#    Updated: 2024/03/11 16:58:06 by mshereme         ###   ########.fr        #
+#    Updated: 2024/03/12 16:15:58 by mshereme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	account
+NAME		=	zombie
 CC			=	c++
 FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRCS		=	Account.cpp \
-				tests.cpp 	\
+SRCS		=	main.cpp 		\
+				HumanA.cpp 		\
+				HumanB.cpp 		\
+				Weapon.cpp		\
 
 OBJS		=	$(SRCS:.cpp=.o)
 
