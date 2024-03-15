@@ -6,39 +6,39 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:34:05 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/11 16:00:31 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:20:49 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.class.hpp"
 #include "Contact.class.hpp"
 
-std::string Contact::get_name(void)
+std::string Contact::get_name( void ) const
 {
 	return (this->_name);
 }
 
-std::string Contact::get_last_name(void)
+std::string Contact::get_last_name( void ) const
 {
 	return (this->_lastname);
 }
 
-std::string Contact::get_nickname(void)
+std::string Contact::get_nickname( void ) const
 {
 	return (this->_nickname);
 }
 
-std::string Contact::get_phone_number(void)
+std::string Contact::get_phone_number( void ) const
 {
 	return (this->_phone_number);
 }
 
-std::string Contact::get_secret(void)
+std::string Contact::get_secret( void ) const
 {
 	return (this->_darkest_secret);
 }
 
-int	Contact::set_contact(void)
+int	Contact::set_contact( void )
 {
 	do
 	{
@@ -76,13 +76,13 @@ int	Contact::set_contact(void)
 	return (0);
 }
 
-Contact::Contact(void)
+Contact::Contact( void )
 {
 	std::cout << "CONSTRUCTOR Contact" << std::endl;
 	return ;
 }
 
-Contact::~Contact(void)
+Contact::~Contact( void )
 {
 	std::cout << "DESTRUCTOR Contact" << std::endl;
 	return ;

@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:11:26 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/12 15:19:54 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:08:33 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int main(void)
 	Greg.annonce();
 	Manu = newZombie("Manu");
 	Manu->annonce();
-	delete ((Zombie*) Manu);
+	delete (Manu);
 	randomChump("Didier");
 
-	tab = zombieHorde(3, "HUGO");
-	delete [] ((Zombie*) tab);
+	tab = zombieHorde(3, "*BOT* Hugo");
+	delete [] (tab);
 	return 0;
 }

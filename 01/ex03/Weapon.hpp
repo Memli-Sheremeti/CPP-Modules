@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:42:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/12 16:00:12 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:14:19 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
  class Weapon
 {
 	public:
+
 		Weapon( std::string Type );
 		~Weapon( void );
-		std::string	getType( void );
-		void 		setType(std::string Type );
 
+		const std::string	getType( void ) const;
+		void 		setType(std::string Type );
 
 	private:
 		std::string _type;

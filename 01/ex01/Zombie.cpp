@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/12 14:46:00 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:06:12 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void Zombie::annonce(void)
 	return ;
 }
 
-std::string Zombie::get_name( void )
+std::string Zombie::get_name( void ) const
 {
 	return (this->name);
 }

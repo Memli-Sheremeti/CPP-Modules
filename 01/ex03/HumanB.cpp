@@ -6,18 +6,18 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:46:18 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/12 17:32:45 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:21:16 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-std::string HumanB::getName( void )
+std::string HumanB::getName( void ) const
 {
 	return (this->_name);
 }
 
-void	HumanB::attack( void )
+void	HumanB::attack( void ) const
 {
 	if (this->_human_weapon)
 		std::cout << getName() << " attacks with their " <<

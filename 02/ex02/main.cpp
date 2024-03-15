@@ -6,28 +6,26 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:11:26 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/14 14:12:47 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/15 11:41:31 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
-int main(void)
+int main( void )
 {
-	std::string str;
-	std::string *stringPtr;
-	std::string &stringREF = str;
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	str = "HI THIS IS BRAIN";
-	stringPtr = &str;
-	std::cout << "STR "<< &str << std::endl;
-	std::cout << "STR "<< str << std::endl;
-	std::cout << "stringPtr "<< &stringPtr << std::endl;
-	std::cout << "stringPtr "<< stringPtr << std::endl;
-	std::cout << "stringPtr "<< *stringPtr << std::endl;
-	std::cout << "stringREF "<< &stringREF << std::endl;
-	std::cout << "stringREF "<< stringREF << std::endl;
-	// std::cout << "stringREF "<< *stringREF << std::endl;
 
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 	return (0);
 }

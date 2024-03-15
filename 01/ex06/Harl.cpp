@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/14 14:38:46 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:38:00 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ void	Harl::debug( void ) const
 {
 	std::cout <<
 	"I love having extra bacon for my "
-	<< "7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!"
+	<< "7XL-double-cheese-triple-pickle-special-ketchup burger.\nI really do!"
 	<< std::endl;
 }
 
 void	Harl::info( void ) const
 {
 	std::cout <<
-	"I cannot believe adding extra bacon costs more money. You didn't put"
-	<< "enough bacon in my burger! If you did, I wouldn't be asking for more!"
+	"I cannot believe adding extra bacon costs more money.\nYou didn't put"
+	<< "enough bacon in my burger!\nIf you did, I wouldn't be asking for more!"
 	<< std::endl;
 }
 
 void	Harl::waring( void ) const
 {
 	std::cout <<
-	"I think I deserve to have some extra bacon for free. I've been coming for"
+	"I think I deserve to have some extra bacon for free.\nI've been coming for"
 	<< " years whereas you started working here since last month."
 	<< std::endl;
 }
@@ -54,11 +54,30 @@ void	Harl::complain( std::string level ) const
 	{
 		if (MSG[i] == level)
 		{
-			(this->*fct_nb[i]) ();
+			switch(i)
+			{
+				case 0:
+					std::cout << "[ "<< MSG[0] << " ]" << std::endl;
+					(this->*fct_nb[0]) ();
+					std::cout << std::endl;
+
+				case 1:
+					std::cout << "[ "<< MSG[1] << " ]" << std::endl;
+					(this->*fct_nb[1]) ();
+					std::cout << std::endl;
+				case 2:
+					std::cout << "[ "<< MSG[2] << " ]" << std::endl;
+					(this->*fct_nb[2]) ();
+					std::cout << std::endl;
+				case 3:
+					std::cout << "[ "<< MSG[3] << " ]" << std::endl;
+					(this->*fct_nb[3]) ();
+					std::cout << std::endl;
+			}
 			return ;
 		}
 	}
-	std::cout << "Strange level... RTFM !" << std::endl;
+	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	return ;
 }
 

@@ -6,28 +6,30 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:11:26 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/14 14:12:47 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/13 16:06:45 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
-int main(void)
+int main( void )
 {
-	std::string str;
-	std::string *stringPtr;
-	std::string &stringREF = str;
+	Fixed a;
+	Fixed const b( 10 );
+	Fixed const c( 42.42f );
+	Fixed const d( b );
 
-	str = "HI THIS IS BRAIN";
-	stringPtr = &str;
-	std::cout << "STR "<< &str << std::endl;
-	std::cout << "STR "<< str << std::endl;
-	std::cout << "stringPtr "<< &stringPtr << std::endl;
-	std::cout << "stringPtr "<< stringPtr << std::endl;
-	std::cout << "stringPtr "<< *stringPtr << std::endl;
-	std::cout << "stringREF "<< &stringREF << std::endl;
-	std::cout << "stringREF "<< stringREF << std::endl;
-	// std::cout << "stringREF "<< *stringREF << std::endl;
-
+	a = Fixed( 1234.4321f );
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	return (0);
 }
+
