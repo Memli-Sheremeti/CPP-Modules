@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/15 15:50:58 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:36:19 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
-# define CONS 0
+# define CONS 1
 
 class ClapTrap
 {
