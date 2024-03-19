@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:28:35 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/18 18:56:21 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:52:33 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "FragTrap.hpp"
 # include <iostream>
 
-class DiamondTrap : public FragTrap, public ScavTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
     public :
 
@@ -28,6 +28,7 @@ class DiamondTrap : public FragTrap, public ScavTrap
     DiamondTrap & operator=(const DiamondTrap & obj);
 
     void    whoAmI( void );
+	void  attack( const std::string &target );
 
     private :
 

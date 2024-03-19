@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:27:42 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/18 19:06:07 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:58:51 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 void	DiamondTrap::whoAmI( void )
 {
-	std::cout << "High Five from " << this->_name << " !!!!" << std::endl;
+	std::cout << "I'm " << this->_name << " !!!!" << std::endl;
+	return ;
+}
+void	DiamondTrap::attack( const std::string &target )
+{
+	ScavTrap::attack( target );
 	return ;
 }
 
@@ -32,30 +37,31 @@ DiamondTrap & DiamondTrap::operator=(const DiamondTrap &obj)
 	return (*this);
 }
 
-DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_trap")
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_trap"), ScavTrap(name + "_scav_trap"), FragTrap(name + "_frag_trap")
 {
+	this->_name = name;
 	this->_hit_pts = FragTrap::_hit_pts;
-	this->_att_dmg =  FragTrap::_hit_pts; ;
-	this->_energy_pts = FragTrap::_hit_pts;;
+	this->_energy_pts = ScavTrap::_energy_pts;
+	this->_att_dmg =  FragTrap::_att_dmg;
 	if (CONS)
-		std::cout << "DiamondTrap Constructor called" << std::endl;
+		std::cout << "DT constructor called" << std::endl;
 	return ;
 }
 
-DiamondTrap::DiamondTrap( void ) : ClapTrap("DT_clap_trap")
+DiamondTrap::DiamondTrap( void ) : ClapTrap()
 {
-	this->_name = "DT_DEFAULLT";
-	this->_hit_pts = 100;
-	this->_energy_pts = 100;
-	this->_att_dmg = 30;
+	this->_name = "DEFAULT DT";
+	this->_hit_pts = FragTrap::_hit_pts;
+	this->_energy_pts = ScavTrap::_energy_pts;
+	this->_att_dmg =  FragTrap::_att_dmg;
 	if (CONS)
-		std::cout << "DiamondTrap:: constructor called" << std::endl;
+		std::cout << "DT default constructor called" << std::endl;
 	return ;
 }
 
 DiamondTrap::~DiamondTrap( void )
 {
 	if (CONS)
-		std::cout << "Destructor called" << std::endl;
+		std::cout << "DT destructor called" << std::endl;
 	return ;
 }

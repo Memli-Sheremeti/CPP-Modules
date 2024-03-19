@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/18 18:22:27 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:52:09 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,36 +53,35 @@ ScavTrap & ScavTrap::operator=(const ScavTrap &obj)
 		this->_hit_pts = obj._hit_pts;
 		this->_energy_pts = obj._energy_pts;
 		this->_att_dmg = obj._att_dmg;
-		this->_guard = obj._guard;
 	}
 	return (*this);
 }
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
 {
+	// this->_name = name;
 	this->_hit_pts = 100;
 	this->_att_dmg = 20;
 	this->_energy_pts = 50;
-	this->_guard = false;
 	if (CONS)
-		std::cout << "SCAVTRA Constructor called" << std::endl;
+		std::cout << "ST constructor called" << std::endl;
 	return ;
 }
 
 ScavTrap::ScavTrap( void ) : ClapTrap()
 {
+	this->_name = "DEFAULT ST";
 	this->_hit_pts = 100;
 	this->_energy_pts = 50;
 	this->_att_dmg = 20;
-	this->_guard = false;
 	if (CONS)
-		std::cout << "SCAVTRAP constructor called" << std::endl;
+		std::cout << "ST default constructor called" << std::endl;
 	return ;
 }
 
 ScavTrap::~ScavTrap( void )
 {
 	if (CONS)
-		std::cout << "Destructor called" << std::endl;
+		std::cout << "ST destructor called" << std::endl;
 	return ;
 }
