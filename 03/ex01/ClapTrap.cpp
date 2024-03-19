@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/18 16:36:12 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:09:26 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,20 +90,20 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &obj)
 ClapTrap::ClapTrap( std::string name ) : _name(name), _hit_pts(10), _energy_pts(10), _att_dmg(0)
 {
 	if (CONS)
-		std::cout << "Clap Trap Constructor called" << std::endl;
+		std::cout << "CT constructor called" << std::endl;
 	return ;
 }
 
-ClapTrap::ClapTrap( void ) : _name("DEFAULT CP"), _hit_pts(10), _energy_pts(10), _att_dmg(0)
+ClapTrap::ClapTrap( void ) : _name("DEFAULT CT"), _hit_pts(10), _energy_pts(10), _att_dmg(0)
 {
 	if (CONS)
-		std::cout << "Clap Trap Default constructor called" << std::endl;
+		std::cout << "CT default constructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::~ClapTrap( void )
 {
 	if (CONS)
-		std::cout << "Destructor called" << std::endl;
+		std::cout << "CT destructor called" << std::endl;
 	return ;
 }

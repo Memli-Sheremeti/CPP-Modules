@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:27:42 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/18 18:43:37 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:20:07 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,29 @@ FragTrap & FragTrap::operator=(const FragTrap &obj)
 
 FragTrap::FragTrap( std::string name ) : ClapTrap(name)
 {
+	this->_name = name;
 	this->_hit_pts = 100;
-	this->_att_dmg = 30;
 	this->_energy_pts = 100;
+	this->_att_dmg = 30;
 	if (CONS)
-		std::cout << "FragTrap Constructor called" << std::endl;
+		std::cout << "FT constructor called" << std::endl;
 	return ;
 }
 
 FragTrap::FragTrap( void ) : ClapTrap()
 {
+	this->_name = "DEFAULT FT";
 	this->_hit_pts = 100;
 	this->_energy_pts = 100;
 	this->_att_dmg = 30;
 	if (CONS)
-		std::cout << "FragTrap:: constructor called" << std::endl;
+		std::cout << "FT default constructor called" << std::endl;
 	return ;
 }
 
 FragTrap::~FragTrap( void )
 {
 	if (CONS)
-		std::cout << "Destructor called" << std::endl;
+		std::cout << "FT destructor called" << std::endl;
 	return ;
 }
