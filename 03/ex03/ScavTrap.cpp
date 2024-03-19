@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 13:52:09 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:39:02 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ ScavTrap & ScavTrap::operator=(const ScavTrap &obj)
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
 {
-	// this->_name = name;
+	this->_name = name;
 	this->_hit_pts = 100;
 	this->_att_dmg = 20;
 	this->_energy_pts = 50;

@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 13:09:26 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:41:16 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	ClapTrap::takeDamage( unsigned int amout )
 	<< this->_name << " looses " << amout << " of life..." << std::endl;
 	amout > this->_hit_pts ? this->_hit_pts = 0 : this->_hit_pts -= amout;
 	if (!this->_hit_pts)
-	std::cout << "ClapTrap "
-	<< this->_name << " is dead... " << std::endl;
+		std::cout << "ClapTrap "
+		<< this->_name << " is dead... " << std::endl;
 	return ;
 }
 void	ClapTrap::beRepaired( unsigned int amout )

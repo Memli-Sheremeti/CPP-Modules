@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:27:42 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 13:50:15 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:39:12 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ FragTrap & FragTrap::operator=(const FragTrap &obj)
 
 FragTrap::FragTrap( std::string name ) : ClapTrap(name)
 {
-	// this->_name = name;
+	this->_name = name;
 	this->_hit_pts = 100;
 	this->_energy_pts = 100;
 	this->_att_dmg = 30;
