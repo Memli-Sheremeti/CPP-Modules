@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/14 15:00:14 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:45:08 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,14 @@ void	Fixed::setRawBits(  int const raw )
 
 Fixed & Fixed::operator=( const Fixed &fixed )
 {
-	std::cout << "Copy constructor called" << std::endl;
 	if (this != &fixed)
-	{
 		this->_fixed_points = fixed.getRawBits();
-	}
 	return (*this);
 }
 
 Fixed::Fixed( const Fixed &fixed )
 {
+	std::cout << "Copy constructor called" << std::endl;
 	*this = fixed;
 	return ;
 }

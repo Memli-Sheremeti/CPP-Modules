@@ -1,56 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.class.cpp                                   :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 17:41:35 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:02:21 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.class.hpp"
+#include "Point.hpp"
+#include "Fixed.hpp"
 
-void	Cure::use( ICharacter & target)
+Fixed	Point::getX( void ) const
 {
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
-	return ;
+	return (this->_x);
 }
 
-AMateria*	Cure::clone( void ) const
+Fixed	Point::getY( void ) const
 {
-	AMateria *res;
-
-	res = new Cure();
-	return (res);
+	return (this->_y);
 }
 
-Cure & Cure::operator=(const Cure &obj)
+Point & Point::operator=( const Point & obj )
 {
 	if (this != &obj)
-		this->_type = obj._type;
+	{
+		(Fixed) this->_x = obj.getX();
+		(Fixed) this->_y = obj.getY();
+	}
 	return (*this);
 }
 
-Cure::Cure( const Cure &obj )
+Point::Point( const Point & obj)
 {
 	if (CONS)
-		std::cout << "Cure : Copy constructor called" << std::endl;
+		std::cout << "Point : Copy constructor called" << std::endl;
 	*this = obj;
 	return ;
 }
 
-Cure::Cure( void ) : AMateria("cure")
-{
+Point::Point( const float & x, const float & y ) : _x(x), _y(y) 
+{ 
 	if (CONS)
-		std::cout << "Cure : Default constructor called" << std::endl;
+		std::cout << "Point : constructor called" << std::endl;
 	return ;
 }
 
-Cure::~Cure( void )
+
+Point::Point( void ) : _x(0) , _y(0)
 {
 	if (CONS)
-		std::cout << "Cure : Destructor called" << std::endl;
+		std::cout << "Point : Default constructor called" << std::endl;
 	return ;
 }
+
+Point::~Point( void )
+{
+	if (CONS)
+		std::cout << "Destructor called" << std::endl;
+	return ;
+}
+

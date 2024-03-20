@@ -13,9 +13,17 @@
 #include "MateriaSource.class.hpp"
 
 
-void	MateriaSource::learnMateria(AMateria*)
+void	MateriaSource::learnMateria(AMateria*	m)
 {
-
+	for (int i = 0; i < 4; i++)
+	{
+		if (!this->_inventory[i])
+		{
+			this->_inventory[i] = m;
+			return ;
+		}
+	}
+	delete m;
 	return ;
 }
 
@@ -23,7 +31,7 @@ AMateria* MateriaSource::createMateria( std::string const & type ) const
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i]->getType() == type )
+		if (this->_inventory[i] && this->_inventory[i]->getType() == type )
 			return (this->_inventory[i]->clone());
 	}
 	return (NULL);
@@ -34,7 +42,14 @@ MateriaSource& MateriaSource::operator=(const MateriaSource & obj )
 	if (this != &obj)
 	{
 		for (int i = 0; i < 4; i++)
-			this->_inventory[i] = obj._inventory[i];
+		{
+			if (this->_inventory[i])
+				delete this->_inventory[i];
+			if (obj._inventory[i])
+				this->_inventory[i] = obj._inventory[i]->clone();
+			else
+				this->_inventory[i] = 0;
+		}
 	}
 	return (*this);
 }
@@ -42,7 +57,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource & obj )
 MateriaSource::MateriaSource( const MateriaSource & obj )
 {
 	if (CONS)
-		std::cout << "MateriaSource : Destructor called" << std::endl;
+		std::cout << "MateriaSource : Copy constructor called" << std::endl;
 	*this = obj;
 	return ;
 }
@@ -52,12 +67,17 @@ MateriaSource::MateriaSource( void )
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 	if (CONS)
-		std::cout << "MateriaSource : Destructor called" << std::endl;
+		std::cout << "MateriaSource : Constructor called" << std::endl;
 	return ;
 }
 
 MateriaSource::~MateriaSource( void )
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+	}
 	if (CONS)
 		std::cout << "MateriaSource : Destructor called" << std::endl;
 	return ;

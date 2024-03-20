@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/15 10:51:11 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:45:58 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Fixed
 		Fixed( void );
 		Fixed( const int a );
 		Fixed( const float f );
+		Fixed(const Fixed &fixed);
 		~Fixed( void );
 		Fixed & operator =(const Fixed &fixed);
 

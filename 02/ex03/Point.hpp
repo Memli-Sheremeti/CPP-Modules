@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MateriaSource.class.hpp                                :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 18:39:49 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:17:36 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIASOURCE_CLASS_HPP
-# define MATERIASOURCE_CLASS_HPP
+#ifndef POINT_HPP
+# define POINT_HPP
 
 # include <iostream>
-# include "AMateria.class.hpp"
-# include "IMateriaSource.class.hpp"
-# define CONS 1
+# include <iostream>
+# include <cmath>
+# include <stdio.h>
+# include "Fixed.hpp"
+# define CONS	0
 
-class MateriaSource : public IMateriaSource
+class Point
 {
 	public:
 
-		MateriaSource( void );
-		virtual ~MateriaSource( void );
-		MateriaSource( const MateriaSource &obj );
-		MateriaSource& operator=( const MateriaSource &obj );
+		Point( void );
+		Point( const float & x, const float & y );
+		Point( const Point &Point );
+		~Point( void );
+		Point&	operator=( const Point &Point );
 
-		void		learnMateria( AMateria *m);
-		AMateria*	createMateria( std::string const & type ) const;
+		Fixed	getX( void ) const;
+		Fixed	getY( void ) const;
+	private:
 
-	private :
-		AMateria *_inventory[4];
+		Fixed const _x;
+		Fixed const _y;
 };
 
+bool	bsp( Point const a, Point const b, Point const c, Point const point );
+std::ostream& operator<<( std::ostream& os, const Fixed& obj );
+// std::ostream& operator++( const Fixed &obj );
 #endif

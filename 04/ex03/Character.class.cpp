@@ -14,21 +14,29 @@
 
 void	Character::unequip( int idx )
 {
-	if (this->_inventory[idx])
-		_inventory[idx] = NULL;
+	if (idx < 0 || idx > 3)
+		return ;
+	else if (this->_inventory[idx])
+	{
+		delete _inventory[idx];
+		_inventory[idx] = 0;
+	}
 	return ;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (!this->_inventory[idx])
+	if (idx < 0 || idx > 3)
 		return ;
-	this->_inventory[idx]->use(target);
+	if (this->_inventory[idx])
+		this->_inventory[idx]->use(target);
 	return ;
 }
 
 void	Character::equip( AMateria *m)
 {
+	if (!m)
+		return ;
 	for (int i = 0; i < 4; i++)
 	{
 		if (!this->_inventory[i])
@@ -49,9 +57,16 @@ Character& Character::operator=(const Character & obj )
 {
 	if (this != &obj)
 	{
-		this->_name = obj._name;
+		this->_name = obj._name + ".copy";
 		for (int i = 0; i < 4; i++)
-			this->_inventory[i] = obj._inventory[i];
+		{
+			if (this->_inventory[i])
+				delete this->_inventory[i];
+			if (obj._inventory[i])
+				this->_inventory[i] = obj._inventory[i]->clone();
+			else
+				this->_inventory[i] = 0;
+		}
 	}
 	return (*this);
 }
@@ -59,7 +74,7 @@ Character& Character::operator=(const Character & obj )
 Character::Character( const Character & obj )
 {
 	if (CONS)
-		std::cout << "Character : Destructor called" << std::endl;
+		std::cout << "Character : Copy Constructor called" << std::endl;
 	*this = obj;
 	return ;
 }
@@ -69,22 +84,27 @@ Character::Character( std::string name ) : _name(name)
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 	if (CONS)
-		std::cout << "Character : Destructor called" << std::endl;
+		std::cout << "Character : Constructor called" << std::endl;
 	return ;
 }
 
 
-Character::Character( void ) : _name("DEFAULT")
+Character::Character( void ) : _name("BOT")
 {
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 	if (CONS)
-		std::cout << "Character : Destructor called" << std::endl;
+		std::cout << "Character : Default Constructorr called" << std::endl;
 	return ;
 }
 
 Character::~Character( void )
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+	}
 	if (CONS)
 		std::cout << "Character : Destructor called" << std::endl;
 	return ;

@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 19:29:50 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/20 12:26:59 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class AMateria
 	public:
 
 		AMateria( void );
+		virtual ~AMateria( void );
 		AMateria( std::string const & type );
 		AMateria ( const AMateria &obj );
-		virtual ~AMateria( void );
 		AMateria & operator=(const AMateria &obj);
 
 		std::string const & getType( void ) const;
@@ -34,7 +34,7 @@ class AMateria
 		virtual void	use( ICharacter& target );
 
 	protected:
-
+	
 		std::string		_type;
 
 };

@@ -23,7 +23,7 @@ AMateria*	Ice::clone( void ) const
 {
 	AMateria *res;
 
-	res = new Ice();
+	res = new Ice(*this);
 	return (res);
 }
 

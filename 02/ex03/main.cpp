@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.class.hpp                                 :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 15:54:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 17:58:27 by mshereme         ###   ########.fr       */
+/*   Created: 2024/03/12 14:11:26 by mshereme          #+#    #+#             */
+/*   Updated: 2024/03/20 18:14:15 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Cure_CLASS_HPP
-# define Cure_CLASS_HPP
+#include "Point.hpp"
+#include <iostream>
+#include <cmath>
 
-# include <iostream>
-# include "ICharacter.class.hpp"
-# include "AMateria.class.hpp"
-# define CONS 1
-
-class ICharacter;
-
-class Cure : public AMateria
+int main( void )
 {
-	public:
-
-		Cure( void );
-		Cure ( const Cure &obj );
-		virtual ~Cure( void );
-		Cure & operator=(const Cure &obj);
-
-		AMateria*	clone( void ) const;
-		void	use( ICharacter& target );
-};
-
-#endif
+    Point const a(0, 1);
+    Point const b(2, 1);
+    Point const c(1, 3);
+    Point const d(1, 2);
+    
+    if (bsp(a, b, c, d))
+        std::cout << "The point is inside the triangle" << std::endl;
+    else
+        std::cout << "The point is outside the triangle" << std::endl;
+    return (0);
+}

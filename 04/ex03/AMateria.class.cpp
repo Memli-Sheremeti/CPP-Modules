@@ -14,16 +14,8 @@
 
 void	AMateria::use( ICharacter & target)
 {
-	(void) target;
+	std::cout << "AMateria use on " << target.getName() << std::endl;
 	return ;
-}
-
-AMateria*	AMateria::clone( void ) const
-{
-	AMateria *res;
-
-	res = NULL;
-	return (res);
 }
 
 std::string const & AMateria::getType( void ) const
@@ -53,7 +45,7 @@ AMateria::AMateria( const std::string & type ) : _type(type)
 	return ;
 }
 
-AMateria::AMateria( void ) : _type("BASIC AMateria")
+AMateria::AMateria( void ) : _type("BASIC type")
 {
 	if (CONS)
 		std::cout << "AMateria : Default constructor called" << std::endl;

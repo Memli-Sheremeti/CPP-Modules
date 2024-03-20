@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/20 18:48:54 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:48:49 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define FIXED_HPP
 
 #include <iostream>
-#include <iostream>
-#include <cmath>
-#include <stdio.h>
 # define CONS	0
 
 class Fixed
@@ -30,11 +27,11 @@ class Fixed
 		static const	Fixed &	max(const Fixed &a, const Fixed &b);
 
 		Fixed( void );
-		~Fixed( void );
 		Fixed( const int a );
 		Fixed( const float f );
-		Fixed( const Fixed & fixed);
-		Fixed&	operator =( const Fixed &fixed );
+		Fixed( const Fixed & obj);
+		~Fixed( void );
+		Fixed&	operator=( const Fixed &fixed );
 		Fixed&	operator++( void );
 		Fixed&	operator--( void );
 		Fixed 	operator--( int );
