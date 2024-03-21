@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/20 18:45:08 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 11:32:20 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,9 @@ Fixed & Fixed::operator=( const Fixed &fixed )
 	return (*this);
 }
 
-Fixed::Fixed( const Fixed &fixed )
+Fixed::Fixed( const Fixed &fixed ) : _fixed_points(fixed.getRawBits())
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = fixed;
 	return ;
 }
 

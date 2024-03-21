@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/20 18:17:36 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 11:36:14 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <cmath>
 # include <stdio.h>
 # include "Fixed.hpp"
-# define CONS	0
 
 class Point
 {
@@ -38,7 +37,7 @@ class Point
 		Fixed const _y;
 };
 
-bool	bsp( Point const a, Point const b, Point const c, Point const point );
-std::ostream& operator<<( std::ostream& os, const Fixed& obj );
-// std::ostream& operator++( const Fixed &obj );
+bool			bsp( Point const a, Point const b, Point const c, Point const point );
+std::ostream& 	operator<<( std::ostream& os, const Fixed& obj );
+
 #endif
