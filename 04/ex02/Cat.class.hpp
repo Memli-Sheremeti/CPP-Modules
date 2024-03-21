@@ -16,7 +16,6 @@
 # include <iostream>
 # include "Animal.class.hpp"
 # include "Brain.class.hpp"
-# define CONS 1
 
 class Cat : public Animal
 {
@@ -29,6 +28,7 @@ class Cat : public Animal
 		Cat & operator=(const Cat &obj);
 
 		void	makeSound( void ) const;
+		void	think( void ) const;
 
 	private:
 		std::string	_sound;

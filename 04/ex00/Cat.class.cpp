@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:30:17 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 17:19:21 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 13:38:44 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,21 @@ void	Cat::makeSound( void ) const
 Cat & Cat::operator=(const Cat &obj)
 {
 	if (this != &obj)
+	{
 		this->_type = obj._type;
+		this->_sound = obj._sound;
+	}
 	return (*this);
 }
 
-Cat::Cat(const Cat &obj)
+Cat::Cat(const Cat &obj) : Animal(obj._type), _sound(obj._sound)
 {
 	if (CONS)
 		std::cout << "CAT : Copy constructor called" << std::endl;
-	*this = obj;
 	return ;
 }
 
-Cat::Cat( void ) : Animal("Cat"), _sound("Miaou !" )
+Cat::Cat( void ) : Animal("Cat"), _sound("Miaou !")
 {
 	if (CONS)
 		std::cout << "CAT : Default constructor called" << std::endl;

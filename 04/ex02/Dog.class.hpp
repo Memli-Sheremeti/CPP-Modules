@@ -16,7 +16,6 @@
 # include <iostream>
 # include "Animal.class.hpp"
 # include "Brain.class.hpp"
-# define CONS 1
 
 class Dog : public Animal
 {
@@ -25,7 +24,7 @@ class Dog : public Animal
 		Dog( void );
 		~Dog( void );
 		// virtual ~Dog( void );
-		Dog(const Dog &obj);
+		Dog( const Dog &obj );
 		Dog & operator=(const Dog &obj);
 
 		void	makeSound( void ) const;

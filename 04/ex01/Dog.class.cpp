@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:30:17 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 16:46:33 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:02:16 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@ Dog & Dog::operator=(const Dog &obj)
 	if (this != &obj)
 	{
 		this->_type = obj._type;
-		this->_brain = new Brain(*obj._brain);
+		*this->_brain = *obj._brain;
 	}
 	return (*this);
 }
 
-Dog::Dog(const Dog &obj)
+Dog::Dog(const Dog &obj) : Animal(obj._type), _sound(obj._sound)
 {
 	if (CONS)
 		std::cout << "DOG : copy constructor called" << std::endl;
-	*this = obj;
+
+	this->_brain = new Brain(*obj._brain);
 	return ;
 }
 

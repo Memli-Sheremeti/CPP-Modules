@@ -71,18 +71,24 @@ Character& Character::operator=(const Character & obj )
 	return (*this);
 }
 
-Character::Character( const Character & obj )
+Character::Character( const Character & obj ) : _name( obj._name )
 {
 	if (CONS)
 		std::cout << "Character : Copy Constructor called" << std::endl;
-	*this = obj;
+	for (int i = 0; i < 4; i++)
+	{
+		if (obj._inventory[i])
+			this->_inventory[i] = obj._inventory[i]->clone();
+		else
+			this->_inventory[i] = 0;
+	}
 	return ;
 }
 
 Character::Character( std::string name ) : _name(name)
 {
 	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = NULL;
+		this->_inventory[i] = 0;
 	if (CONS)
 		std::cout << "Character : Constructor called" << std::endl;
 	return ;
@@ -92,7 +98,7 @@ Character::Character( std::string name ) : _name(name)
 Character::Character( void ) : _name("BOT")
 {
 	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = NULL;
+		this->_inventory[i] = 0;
 	if (CONS)
 		std::cout << "Character : Default Constructorr called" << std::endl;
 	return ;

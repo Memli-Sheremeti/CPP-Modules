@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:27:51 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 17:25:45 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:02:45 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,21 @@ int main()
 	delete j;//should not create a leak
 	delete i;
 
-	Animal* ani[100];
+	Animal* ani[3];
 
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < 2; i++)
+	{
 		ani[i] = new Dog();
-	for (int i = 50; i < 100; i++)
+		ani[i]->makeSound();
+		ani[i]->getType();
+	}
+	for (int i = 2; i < 3; i++)
+	{
 		ani[i] = new Cat();
-	for (int i = 0; i < 100; i++)
+		ani[i]->makeSound();
+		ani[i]->getType();
+	}
+	for (int i = 0; i < 3; i++)
 		delete ani[i];
 
 	std::cout << "----------------------------" << std::endl;
@@ -39,5 +47,11 @@ int main()
 		std::cout << wp->getType() << std::endl;
 		delete lol;
 	}
+	Cat chien;
+	Cat berger;
+
+	berger = chien;
+	berger.think();
+	Cat salut = chien;
 	return 0;
 }

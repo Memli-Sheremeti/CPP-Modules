@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 15:54:30 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 13:42:16 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@ Animal & Animal::operator=(const Animal &obj)
 	return (*this);
 }
 
-Animal::Animal( const Animal &obj )
+Animal::Animal( const Animal &obj ) : _type(obj._type)
 {
 	if (CONS)
 		std::cout << "ANIMAL : Copy constructor called" << std::endl;
-	*this = obj;
 	return ;
 }
 

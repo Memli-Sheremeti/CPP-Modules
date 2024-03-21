@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 15:39:02 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 11:58:08 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,14 @@ ScavTrap & ScavTrap::operator=(const ScavTrap &obj)
 		this->_att_dmg = obj._att_dmg;
 	}
 	return (*this);
+}
+
+ScavTrap::ScavTrap( const ScavTrap &obj )
+{
+	if (CONS)
+		std::cout << "Copy constructor called" << std::endl;
+	*this = obj;
+	return ;
 }
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)

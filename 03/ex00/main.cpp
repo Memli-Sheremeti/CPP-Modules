@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:11:26 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/18 15:52:08 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 11:45:30 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,5 @@ int main( void )
 	std::cout << "\n--- NO LIFE OR ENERGY \n" << std::endl;
 	claptrap.attack("Knight");
 	claptrap.beRepaired(100);
-
-
 	return (0);
 }

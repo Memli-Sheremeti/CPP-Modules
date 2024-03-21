@@ -58,14 +58,20 @@ MateriaSource::MateriaSource( const MateriaSource & obj )
 {
 	if (CONS)
 		std::cout << "MateriaSource : Copy constructor called" << std::endl;
-	*this = obj;
+	for (int i = 0; i < 4; i++)
+	{
+		if (obj._inventory[i])
+			this->_inventory[i] = obj._inventory[i]->clone();
+		else
+			this->_inventory[i] = 0;
+	}
 	return ;
 }
 
 MateriaSource::MateriaSource( void )
 {
 	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = NULL;
+		this->_inventory[i] = 0;
 	if (CONS)
 		std::cout << "MateriaSource : Constructor called" << std::endl;
 	return ;

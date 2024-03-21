@@ -14,7 +14,7 @@
 # define BRAIN_CLASS_HPP
 
 # include <iostream>
-# define CONS 1
+# include "Animal.class.hpp"
 
 class Brain
 {
@@ -25,6 +25,9 @@ class Brain
 		Brain ( const Brain &obj );
 		Brain & operator=(const Brain &obj);
 
+		void		getIdea( void ) const;
+		void		setIdea( std::string idea );
+		
 	protected:
 		std::string		_ideas[100];
 

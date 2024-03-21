@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:30:17 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 15:53:28 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 13:56:33 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,30 @@ void	Cat::makeSound( void ) const
 	return ;
 }
 
+void	Cat::think( void ) const
+{
+	this->_brain->setIdea(" Croquette ");
+	this->_brain->getIdea();
+}
+
 Cat & Cat::operator=(const Cat &obj)
 {
 	if (this != &obj)
+	{
+		// if (this->_brain)
+		// 	delete this->_brain;
+		// this->_brain = new Brain(*obj._brain);
+		*this->_brain = *obj._brain;
 		this->_type = obj._type;
+	}
 	return (*this);
 }
 
-Cat::Cat(const Cat &obj)
+Cat::Cat( const Cat &obj ) :  Animal("Cat"), _sound(obj._sound)
 {
 	if (CONS)
 		std::cout << "CAT : copy constructor called" << std::endl;
-	*this = obj;
+	this->_brain = new Brain (*obj._brain);
 	return ;
 }
 

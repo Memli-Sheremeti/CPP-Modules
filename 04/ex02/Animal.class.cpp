@@ -6,17 +6,11 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 17:41:35 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:05:46 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.class.hpp"
-
-void	Animal::makeSound( void ) const
-{
-	std::cout << "*animal sound*" << std::endl;
-	return ;
-}
 
 std::string	Animal::getType( void ) const
 {

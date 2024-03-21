@@ -6,15 +6,11 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/21 11:33:51 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:34:56 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
-#include <cmath>
-#include <stdio.h>
-
 
 int	Fixed::get_bits( void )
 {

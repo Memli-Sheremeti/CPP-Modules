@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:27:51 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 17:17:50 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 13:40:53 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,26 @@ int main()
 	delete atem;
 	delete l;
 
+	Cat chat;
+	Cat berger;
+
+	Cat maia = chat;
+
+	std::cout << maia.getType() << " " << std::endl;
+	std::cout << chat.getType() << " " << std::endl;
+
+	berger = maia;
+	std::cout << berger.getType() << " " << std::endl;
+
+	Dog chien;
+	Dog allemand;
+
+	Dog boston = chien;
+
+	std::cout << boston.getType() << " " << std::endl;
+	std::cout << chien.getType() << " " << std::endl;
+
+	allemand = boston;
+	std::cout << allemand.getType() << " " << std::endl;
 	return 0;
 }

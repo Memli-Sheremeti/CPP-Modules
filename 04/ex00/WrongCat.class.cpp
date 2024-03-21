@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:16:04 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 17:18:50 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 13:36:27 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,17 @@ void	WrongCat::makeSound( void ) const
 WrongCat & WrongCat::operator=(const WrongCat &obj)
 {
 	if (this != &obj)
+	{
 		this->_type = obj._type;
+		this->_sound = obj._sound;
+	}
 	return (*this);
 }
 
-WrongCat::WrongCat(const WrongCat &obj)
+WrongCat::WrongCat(const WrongCat &obj) : WrongAnimal(obj._type), _sound(obj._sound)
 {
 	if (CONS)
 		std::cout << "WRONG CAT : Copy constructor called" << std::endl;
-	*this = obj;
 	return ;
 }
 

@@ -33,11 +33,10 @@ Cure & Cure::operator=(const Cure &obj)
 	return (*this);
 }
 
-Cure::Cure( const Cure &obj )
+Cure::Cure( const Cure &obj ) : AMateria( obj._type )
 {
 	if (CONS)
 		std::cout << "Cure : Copy constructor called" << std::endl;
-	*this = obj;
 	return ;
 }
 

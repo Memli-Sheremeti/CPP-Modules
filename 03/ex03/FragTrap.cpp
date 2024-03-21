@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:27:42 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/19 15:39:12 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/21 11:57:25 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ FragTrap & FragTrap::operator=(const FragTrap &obj)
 		this->_att_dmg = obj._att_dmg;
 	}
 	return (*this);
+}
+
+FragTrap::FragTrap( const FragTrap &obj )
+{
+	if (CONS)
+		std::cout << "Copy constructor called" << std::endl;
+	*this = obj;
+	return ;
 }
 
 FragTrap::FragTrap( std::string name ) : ClapTrap(name)

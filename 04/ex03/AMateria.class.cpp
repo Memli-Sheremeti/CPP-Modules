@@ -30,11 +30,10 @@ AMateria & AMateria::operator=(const AMateria &obj)
 	return (*this);
 }
 
-AMateria::AMateria( const AMateria &obj )
+AMateria::AMateria( const AMateria &obj ) : _type( obj._type )
 {
 	if (CONS)
 		std::cout << "AMateria : Copy constructor called" << std::endl;
-	*this = obj;
 	return ;
 }
 

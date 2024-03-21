@@ -14,7 +14,9 @@
 # define ANIMAL_CLASS_HPP
 
 # include <iostream>
-# define CONS 1
+# ifndef CONS
+#  define CONS 1
+# endif
 
 class Animal
 {

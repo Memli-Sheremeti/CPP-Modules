@@ -34,14 +34,12 @@ Ice & Ice::operator=(const Ice &obj)
 	return (*this);
 }
 
-Ice::Ice( const Ice &obj )
+Ice::Ice( const Ice &obj ) : AMateria(obj._type)
 {
 	if (CONS)
 		std::cout << "Ice : Copy constructor called" << std::endl;
-	*this = obj;
 	return ;
 }
-
 
 Ice::Ice( void ) : AMateria("ice")
 {
