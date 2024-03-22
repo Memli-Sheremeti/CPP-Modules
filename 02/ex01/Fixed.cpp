@@ -56,6 +56,11 @@ Fixed::Fixed( const Fixed &fixed ) : _fixed_points(fixed.getRawBits())
 
 Fixed::Fixed( const int a )
 {
+	if ( a > 2^23 ) 
+	{
+		// print une erreur forcer la valeur a etre sous 2^23
+		//
+	} 
 	this->_fixed_points = a * (1 << this->get_bits());
 	std::cout << "Int constructor called" << std::endl;
 	return ;
