@@ -22,9 +22,9 @@ class Bureaucrat;
 class ShrubberyCreationForm : public AForm
 {
 
-	// private:
+	private:
 
-	// 	const std::string		_name;
+		const std::string		_target;
 	// 	bool					_signed;
 	// 	const unsigned int		_grade_to_sign;
 	// 	const unsigned int		_grade_to_exec;
@@ -33,7 +33,7 @@ class ShrubberyCreationForm : public AForm
 
 		ShrubberyCreationForm( void );
 		virtual ~ShrubberyCreationForm( void );
-		ShrubberyCreationForm( std::string name, unsigned int grade_to_sign, unsigned int grade_to_exec );
+		ShrubberyCreationForm( std::string & target);
 		ShrubberyCreationForm ( const ShrubberyCreationForm &obj );
 		ShrubberyCreationForm & operator=(const ShrubberyCreationForm &obj);
 

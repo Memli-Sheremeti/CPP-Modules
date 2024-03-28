@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include "Animal.class.hpp"
-# define CONS 1
 
 class Cat : public Animal
 {

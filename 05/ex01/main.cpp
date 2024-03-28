@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:27:51 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/21 18:23:29 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/27 14:35:56 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int main()
 {
 	// Bureaucrat n0("memli", 0);
+	std::cout << "\n######################################\n" << std::endl;
 
 	try
 	{
@@ -33,6 +34,9 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
+	std::cout << "\n######################################\n" << std::endl;
+
 	try
 	{
 		Bureaucrat n2("memli", 151);
@@ -49,6 +53,9 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
+	std::cout << "\n######################################\n" << std::endl;
+
 	try
 	{
 		Bureaucrat n3("memli", -1);
@@ -65,6 +72,9 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
+	std::cout << "\n######################################\n" << std::endl;
+
 	try
 	{
 		Form f4("alors", 100, 151);
@@ -74,7 +84,7 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << " ----------------------------------------------- " << std::endl;
+	std::cout << "\n######################################\n" << std::endl;
 
 	Bureaucrat	n4("CAPO", 100);
 	Form		f5("ALPHA", 100, 100);
@@ -91,7 +101,7 @@ int main()
 	std::cout << "Congragts " << n4.getName() << " you have been impeded !" << std::endl;
 	std::cout << n4 << std::endl;
 
-	std::cout << " ----------------------------------------------- " << std::endl;
+	std::cout << "\n######################################\n" << std::endl;
 
 	Bureaucrat	n5("CAPI", 1);
 	Form		f6("BETA", 20, 20);
@@ -110,8 +120,8 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 
+	std::cout << "\n######################################\n" << std::endl;
 
-	std::cout << " ----------------------------------------------- " << std::endl;
 
 	Bureaucrat	n6("CAPA", 150);
 	Form		f7("CHARLIE", 100, 100);

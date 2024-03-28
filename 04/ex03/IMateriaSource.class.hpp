@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include "AMateria.class.hpp"
-# define CONS 1
+
 
 class IMateriaSource
 {

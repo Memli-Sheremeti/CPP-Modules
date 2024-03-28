@@ -6,14 +6,13 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/21 11:11:08 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/26 13:57:51 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
-#include <cmath>
-#include <stdio.h>
+
+// ----------------------- OTHER Operators -------------------------------------
 
 int	Fixed::get_bits( void )
 {
@@ -64,14 +63,9 @@ void	Fixed::setRawBits(  int const raw )
 	return ;
 }
 
-Fixed Fixed::operator+( const Fixed &fixed ) const
-{
-	return (this->toFloat() + fixed.toFloat());
-}
-
 Fixed & Fixed::operator++( void )
 {
-	this->_fixed_points += 1;
+	this->_fixed_points++;
 	return (*this);
 }
 
@@ -84,14 +78,9 @@ Fixed	Fixed::operator++( int )
 	return (old);
 }
 
-Fixed	Fixed::operator-( const Fixed &fixed ) const
-{
-	return (this->toFloat() - fixed.toFloat());
-}
-
 Fixed & Fixed::operator--( void )
 {
-	this->_fixed_points -= 1;
+	this->_fixed_points--;
 	return (*this);
 }
 
@@ -104,15 +93,49 @@ Fixed	Fixed::operator--( int )
 	return (old);
 }
 
-Fixed	Fixed::operator*( const Fixed &fixed ) const
+// ----------------------- OPERATEUR -------------------------------------------
+
+Fixed Fixed::operator+( const Fixed &fixed )
 {
-	return (this->toFloat() * fixed.toFloat());
+	Fixed res;
+	int x;
+
+	x = (this->getRawBits() + fixed.getRawBits());
+	res.setRawBits(x);
+	return (res);
 }
 
-Fixed	Fixed::operator/( const Fixed &fixed ) const
+Fixed	Fixed::operator-( const Fixed &fixed )
 {
-	return (this->toFloat() / fixed.toFloat());
+	Fixed res;
+	int x;
+
+	x = (this->getRawBits() - fixed.getRawBits());
+	res.setRawBits(x);
+	return (res);
 }
+
+Fixed	Fixed::operator*( const Fixed &fixed )
+{
+	Fixed	res;
+	int 	result;
+
+	result = (int64_t) this->_fixed_points * (int64_t) fixed._fixed_points / (1 << this->get_bits());
+	res.setRawBits(result);
+	return res ;
+}
+
+Fixed	Fixed::operator/( const Fixed &fixed )
+{
+	Fixed	res;
+	int 	result;
+
+	result = ((int64_t) this->_fixed_points * (1 << this->get_bits())) / fixed._fixed_points;
+	res.setRawBits(result);
+	return res ;
+}
+
+// ----------------------- COMPARISON ------------------------------------------
 
 bool	Fixed::operator<( const Fixed &fixed ) const
 {
@@ -156,6 +179,8 @@ bool	Fixed::operator!=( const Fixed &fixed ) const
 	return (false);
 }
 
+// ----------------------- CANONIC ---------------------------------------------
+
 Fixed & Fixed::operator=( const Fixed &fixed )
 {
 	if (this != &fixed)
@@ -163,7 +188,7 @@ Fixed & Fixed::operator=( const Fixed &fixed )
 	return (*this);
 }
 
-Fixed::Fixed( const Fixed & obj ) : _fixed_points(obj.getRawBits())
+Fixed::Fixed( const Fixed &fixed ) : _fixed_points(fixed.getRawBits())
 {
 	if (CONS)
 		std::cout << "Copy constructor called" << std::endl;
@@ -172,7 +197,21 @@ Fixed::Fixed( const Fixed & obj ) : _fixed_points(obj.getRawBits())
 
 Fixed::Fixed( const int a )
 {
-	this->_fixed_points = a  * (1 << this->get_bits());
+	if (a > 8388607)
+	{
+		if (CONS)
+			std::cout << "int too big recast in 8388607" << std::endl;
+		this->_fixed_points = 8388607 * (1 << this->get_bits());
+		return ;
+	}
+	else if (a < -8388608)
+	{
+		if (CONS)
+			std::cout << "int too small recast in -8388608" << std::endl;
+		this->_fixed_points = -8388608 * (1 << this->get_bits());
+		return ;
+	}
+	this->_fixed_points = a * (1 << this->get_bits());
 	if (CONS)
 		std::cout << "Int constructor called" << std::endl;
 	return ;
@@ -180,6 +219,20 @@ Fixed::Fixed( const int a )
 
 Fixed::Fixed( const float f )
 {
+	if (f > 8388607.0f)
+	{
+		if (CONS)
+			std::cout << "float too big recast in 8388607.0f" << std::endl;
+		this->_fixed_points = roundf(8388607.0f * (1 << this->get_bits()));
+		return ;
+	}
+	else if (f < -8388608.0f)
+	{
+		if (CONS)
+			std::cout <<  "float too big recast in 8388608.0f" << std::endl;
+		this->_fixed_points = roundf(-8388608.0f * (1 << this->get_bits()));;
+		return ;
+	}
 	this->_fixed_points = roundf(f * (1 << this->get_bits()));
 	if (CONS)
 		std::cout << "Float constructor called" << std::endl;

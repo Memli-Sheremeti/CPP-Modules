@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 18:37:53 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/21 18:53:07 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/22 10:19:33 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,16 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &obj )
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string name, unsigned int grade_to_sign, unsigned int grade_to_exec ) :
-AForm (name, grade_to_sign, grade_to_exec)
+ShrubberyCreationForm::ShrubberyCreationForm( std::string & target) :
+AForm(target + "_shrubbery", 145, 137), _target( target )
 {
-	if (AForm::getGrade_exec() < 137 || AForm::getGrade_sign() < 145)
-		throw ShrubberyCreationForm::GradeTooHighException();
-	else if (AForm::getGrade_exec() > 150 || AForm::getGrade_sign() > 150)
-			throw  ShrubberyCreationForm::GradeTooLowException();
 	if (CONS)
 		std::cout << "ShrubberyCreationForm : Constructor called" << std::endl;
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("DEFAULT ShrubberyCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm( void ) :
+AForm("default_shrubbery", 145, 137), _target("default")
 {
 	if (CONS)
 		std::cout << "ShrubberyCreationForm : Default constructor called" << std::endl;

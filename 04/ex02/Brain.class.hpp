@@ -27,7 +27,8 @@ class Brain
 
 		void		getIdea( void ) const;
 		void		setIdea( std::string idea );
-		
+
+
 	protected:
 		std::string		_ideas[100];
 

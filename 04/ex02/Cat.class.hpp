@@ -28,7 +28,8 @@ class Cat : public Animal
 		Cat & operator=(const Cat &obj);
 
 		void	makeSound( void ) const;
-		void	think( void ) const;
+		void	newIdea( std::string msg ) ;
+		void	think( void ) const ;
 
 	private:
 		std::string	_sound;

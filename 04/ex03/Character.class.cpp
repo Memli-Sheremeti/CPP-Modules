@@ -18,7 +18,7 @@ void	Character::unequip( int idx )
 		return ;
 	else if (this->_inventory[idx])
 	{
-		delete _inventory[idx];
+		// delete _inventory[idx];
 		_inventory[idx] = 0;
 	}
 	return ;

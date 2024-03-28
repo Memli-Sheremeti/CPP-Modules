@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/21 11:44:14 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:11:44 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,11 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &obj)
 	return (*this);
 }
 
-ClapTrap::ClapTrap(const ClapTrap &obj)
+ClapTrap::ClapTrap(const ClapTrap &obj) :
+_name(obj._name), _hit_pts(obj._hit_pts), _energy_pts(obj._energy_pts), _att_dmg(obj._att_dmg)
 {
 	if (CONS)
-		std::cout << "Copy constructor called" << std::endl;
-	*this = obj;
+		std::cout << "Copy constructor called" << std::endl;;
 	return ;
 }
 

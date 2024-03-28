@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:30:17 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/21 14:02:16 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:41:53 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@ void	Dog::makeSound( void ) const
 	return ;
 }
 
+void	Dog::newIdea( std::string idea)
+{
+	this->_brain->setIdea( idea );
+	this->_brain->getIdea();
+	return ;
+}
+void	Dog::think( void ) const
+{
+	this->_brain->getIdea();
+}
 Dog & Dog::operator=(const Dog &obj)
 {
 	if (this != &obj)

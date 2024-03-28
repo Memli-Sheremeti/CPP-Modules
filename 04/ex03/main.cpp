@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:27:51 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/21 14:31:16 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/27 15:02:05 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main()
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	tmp = src->createMateria("cure");
+	tmp = src->createMateria("lol");
 	me->equip(tmp);
 
 	ICharacter* bob = new Character("bob");
@@ -43,3 +43,22 @@ int main()
 
 	return 0;
 }
+
+// int main()
+// {
+// 	ICharacter* me = new Character("me");
+
+// 	AMateria* tmp = new Ice();
+// 	me->equip(tmp);
+// 	// me->equip(tmp);
+
+// 	ICharacter* bob = new Character("bob");
+
+// 	me->use(0, *bob);
+// 	// me->use(1, *bob);
+// 	delete bob;
+// 	delete me;
+// 	delete tmp;
+
+// 	return 0;
+// }

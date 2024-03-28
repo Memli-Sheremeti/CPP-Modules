@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/21 14:20:42 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:46:52 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 # include <iostream>
 # include "ICharacter.class.hpp"
-# define CONS 1
+
+# ifndef CONS
+# 	define CONS 0
+# endif
 
 class ICharacter;
 
@@ -34,7 +37,7 @@ class AMateria
 		virtual void	use( ICharacter& target );
 
 	protected:
-	
+
 		std::string		_type;
 
 };

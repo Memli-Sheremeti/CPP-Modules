@@ -46,7 +46,6 @@ class Form
 	class GradeTooHighException : public std::exception
 	{
 		public :
-
 		virtual const char * what( void )  const throw();
 
 	};

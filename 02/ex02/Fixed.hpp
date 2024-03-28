@@ -6,14 +6,13 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/20 18:48:54 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/22 09:21:48 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-#include <iostream>
 #include <iostream>
 #include <cmath>
 #include <stdio.h>
@@ -40,10 +39,10 @@ class Fixed
 		Fixed 	operator--( int );
 		Fixed 	operator++( int );
 
-		Fixed	operator-( const Fixed &fixed ) const;
-		Fixed	operator+( const Fixed &fixed ) const;
-		Fixed	operator*( const Fixed &fixed ) const;
-		Fixed	operator/( const Fixed &fixed ) const;
+		Fixed	operator-( const Fixed &fixed );
+		Fixed	operator+( const Fixed &fixed );
+		Fixed	operator*( const Fixed &fixed );
+		Fixed	operator/( const Fixed &fixed );
 
 		bool	operator<( const Fixed &fixed ) const;
 		bool	operator>( const Fixed &fixed ) const;

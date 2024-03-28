@@ -16,7 +16,7 @@
 # include <iostream>
 # include "ICharacter.class.hpp"
 # include "AMateria.class.hpp"
-# define CONS 1
+
 
 class ICharacter;
 
