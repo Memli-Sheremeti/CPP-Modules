@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/26 11:27:52 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/28 13:51:49 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ Fixed::Fixed( const Fixed &fixed ) : _fixed_points(fixed.getRawBits())
 
 Fixed::Fixed( const int a )
 {
-<<<<<<< HEAD
 	if (a > 8388607)
 	{
 		std::cout << "int too big recast in 8388607" << std::endl;
@@ -69,13 +68,6 @@ Fixed::Fixed( const int a )
 		this->_fixed_points = -8388608 * (1 << this->get_bits());
 		return ;
 	}
-=======
-	if ( a > 2^23 ) 
-	{
-		// print une erreur forcer la valeur a etre sous 2^23
-		//
-	} 
->>>>>>> bafdc9083a05df9fc452e8c69d9b0cfa6fa09f0f
 	this->_fixed_points = a * (1 << this->get_bits());
 	std::cout << "Int constructor called" << std::endl;
 	return ;
