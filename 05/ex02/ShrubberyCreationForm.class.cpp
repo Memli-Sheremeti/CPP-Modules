@@ -12,54 +12,60 @@
 
 #include "ShrubberyCreationForm.class.hpp"
 
-// const char * ShrubberyCreationForm::GradeTooHighException::what( void )  const throw()
-// {
-// 	return ("the Grade is to high for this ShrubberyCreationForm : 1 to 150!");
-// }
+void ShrubberyCreationForm::execute(Bureaucrat const & executor)
+{
+	if (executor.getGrade() > this->getGrade_exec())
+		throw (Bureaucrat::GradeTooLowException());
+	else if (this->getSigned() == false)
+		throw (AForm::NotSignedForm());
+	else
+	{
+		std::ofstream out(_target.apppend("_shrubbery").c_str());
+		for (int i = 0; i < 3; i++)
+		{
+			out <<
+			   "                                            ." << "\n"
+			<< "                                    .         ;  " << "\n"
+			<< "       .              .              ;%     ;;   " << "\n"
+			<< "         ,           ,                :;%  %;   " << "\n"
+			<< "          :         ;                   :;%;'     .,   " << "\n"
+			<< " ,.        %;     %;            ;        %;'    ,;" << "\n"
+			<< "   ;       ;%;  %%;        ,     %;    ;%;    ,%'" << "\n"
+			<< "    %;       %;%;      ,  ;       %;  ;%;   ,%;' " << "\n"
+			<< "     ;%;      %;        ;%;        % ;%;  ,%;'" << "\n"
+			<< "      `%;.     ;%;     %;'         `;%%;.%;'" << "\n"
+			<< "       `:;%.    ;%%. %@;        %; ;@%;%'" << "\n"
+			<< "          `:%;.  :;bd%;          %;@%;'" << "\n"
+			<< "            `@%:.  :;%.         ;@@%;'   " << "\n"
+			<< "              `@%.  `;@%.      ;@@%;         " << "\n"
+			<< "                `@%%. `@%%    ;@@%;        " << "\n"
+			<< "                  ;@%. :@%%  %@@%;       " << "\n"
+			<< "                    %@bd%%%bd%%:;     " << "\n"
+			<< "                      #@%%%%%:;;" << "\n"
+			<< "                      %@@%%%::;" << "\n"
+			<< "                      %@@@%(o);  . '         " << "\n"
+			<< "                      %@@@o%;:(.,'         " << "\n"
+			<< "                  `.. %@@@o%::;         " << "\n"
+			<< "                     `)@@@o%::;         " << "\n"
+			<< "                      %@@(o)::;        " << "\n"
+			<< "                     .%@@@@%::;         " << "\n"
+			<< "                     ;%@@@@%::;.          " << "\n"
+			<< "                    ;%@@@@%%:;;;. " << "\n"
+			<< "                ...;%@@@@@%%:;;;;,..   " << std::endl
+			<< std::endl;
+		}
+	}
+	return ;
+}
 
-// const char * ShrubberyCreationForm::GradeTooLowException::what( void )  const throw()
-// {
-// 	return ("the Grade is to low for this ShrubberyCreationForm !");
-// }
+ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj)
+{
+	if (this != &obj)
+		this->_target = obj._target;
+	return (*this);
+}
 
-// void	ShrubberyCreationForm::beSigned( const Bureaucrat &b)
-// {
-// 	// std::cout << b << std::endl;
-// 	// std::cout << *this << std::endl;
-// 	if (b.getGrade() > this->_grade_to_sign)
-// 		throw ShrubberyCreationForm::GradeTooLowException();
-// 	this->_signed = true;
-// 	return ;
-// }
-
-// std::string		ShrubberyCreationForm::getName( void ) const
-// {
-// 	return (this->_name);
-// }
-
-// unsigned int	ShrubberyCreationForm::getGrade_sign( void ) const
-// {
-// 	return (this->_grade_to_sign);
-// }
-
-// unsigned int	ShrubberyCreationForm::getGrade_exec( void ) const
-// {
-// 	return (this->_grade_to_exec);
-// }
-
-// bool		ShrubberyCreationForm::getSigned( void ) const
-// {
-// 	return (this->_signed ? true : false);
-// }
-
-// ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj)
-// {
-// 	if (this != &obj)
-// 		this->_signed = obj._signed;
-// 	return (*this);
-// }
-
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &obj )
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &obj ) : _target(obj._target)
 {
 	if (CONS)
 		std::cout << "ShrubberyCreationForm : Copy constructor called" << std::endl;
@@ -67,7 +73,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &obj )
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string & target) :
-AForm(target + "_shrubbery", 145, 137), _target( target )
+AForm(target + "_shrubbery", 145, 137), _target( target._target )
 {
 	if (CONS)
 		std::cout << "ShrubberyCreationForm : Constructor called" << std::endl;
@@ -89,9 +95,3 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void )
 	return ;
 }
 
-// std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& obj)
-// {
-// 	os << obj.getName() << " ShrubberyCreationForm can be signed by " << obj.getGrade_sign()
-// 	<< " grade and can be executed by " << obj.getGrade_exec();
-// 	return (os);
-// }

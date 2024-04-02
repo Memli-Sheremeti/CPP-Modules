@@ -12,6 +12,11 @@
 
 #include "AForm.class.hpp"
 
+const char * AForm::NotSignedForm::what(void) const throw ()
+{
+	return ("this form is not signed !");
+}
+
 const char * AForm::GradeTooHighException::what( void )  const throw()
 {
 	return ("the Grade is to high for this AForm : 1 to 150!");

@@ -25,9 +25,6 @@ class ShrubberyCreationForm : public AForm
 	private:
 
 		const std::string		_target;
-	// 	bool					_signed;
-	// 	const unsigned int		_grade_to_sign;
-	// 	const unsigned int		_grade_to_exec;
 
 	public:
 
@@ -37,27 +34,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm ( const ShrubberyCreationForm &obj );
 		ShrubberyCreationForm & operator=(const ShrubberyCreationForm &obj);
 
-	// 	void			beSigned( const Bureaucrat &b);
-	// 	std::string		getName( void ) const ;
-	// 	unsigned int	getGrade_sign( void ) const ;
-	// 	unsigned int	getGrade_exec( void ) const ;
-	// 	bool			getSigned( void ) const ;
-
-	// class GradeTooHighException : public std::exception
-	// {
-	// 	public :
-
-	// 	virtual const char * what( void )  const throw();
-
-	// };
-
-	// class GradeTooLowException : public std::exception
-	// {
-	// 	public :
-	// 	virtual const char * what( void )  const throw();
-	// };
+		void	execute( Bureaucrat const & executor );
 };
-
-std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& obj);
 
 #endif
