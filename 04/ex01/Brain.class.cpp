@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:59:59 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/26 14:41:03 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/28 14:10:54 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,20 @@ Brain::Brain( const Brain &obj )
 {
 	*this->_ideas = *obj._ideas;
 	if (CONS)
-		std::cout << "Brain Copy constructor called" << std::endl;
+		std::cout << "Brain : Copy constructor called" << std::endl;
 	return ;
 }
 
 Brain::Brain( void )
 {
 	if (CONS)
-		std::cout << "Brain Default constructor called" << std::endl;
+		std::cout << "Brain : Default constructor called" << std::endl;
 	return ;
 }
 
 Brain::~Brain( void )
 {
 	if (CONS)
-		std::cout << "Brain Destructor called" << std::endl;
+		std::cout << "Brain : Destructor called" << std::endl;
 	return ;
 }

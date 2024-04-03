@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:27:51 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/26 14:40:32 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/28 14:09:40 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 	{
 		ani[i] = new Dog();
 		ani[i]->makeSound();
-		ani[i]->getType();
+		std::cout << ani[i]->getType() << std::endl;
 	}
 	std::cout << "----------------------------" << std::endl;
 
@@ -36,6 +36,8 @@ int main()
 		ani[i] = new Cat();
 		ani[i]->makeSound();
 		ani[i]->getType();
+		std::cout << ani[i]->getType() << std::endl;
+
 	}
 	std::cout << "----------------------------" << std::endl;
 
@@ -50,14 +52,18 @@ int main()
 		std::cout << wp->getType() << std::endl;
 		delete lol;
 	}
-	Cat chien;
-	Cat berger;
 
-	berger.newIdea("oui");
-	chien = berger;
-
-	chien.think();
-	berger.newIdea("dormir");
-	chien.think();
+	Dog basic;
+	{
+		std::cout << "basic new idea: ";
+		basic.newIdea("salut ca va");
+		Dog tmp = basic;
+		std::cout << "tmp : ";
+		tmp.think();
+		std::cout << "tmp new idea: ";
+		tmp.newIdea("coucou");
+		std::cout << "basic idea: ";
+		basic.think();
+	}
 	return 0;
 }

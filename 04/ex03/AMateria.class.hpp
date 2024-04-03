@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/26 14:46:52 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/03/28 14:29:28 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "ICharacter.class.hpp"
 
 # ifndef CONS
-# 	define CONS 0
+# 	define CONS 1
 # endif
 
 class ICharacter;

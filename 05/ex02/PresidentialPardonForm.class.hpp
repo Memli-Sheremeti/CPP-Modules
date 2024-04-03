@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   PresidentialPardonForm.class.hpp                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 18:36:38 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/21 18:37:28 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/04/03 14:33:49 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,42 +22,19 @@ class Bureaucrat;
 class PresidentialPardonForm : public AForm
 {
 
-	// private:
+	private:
 
-	// 	const std::string		_name;
-	// 	bool					_signed;
-	// 	const unsigned int		_grade_to_sign;
-	// 	const unsigned int		_grade_to_exec;
+		const std::string		_target;
+		PresidentialPardonForm & operator=(const PresidentialPardonForm &obj);
 
 	public:
 
 		PresidentialPardonForm( void );
 		virtual ~PresidentialPardonForm( void );
-		PresidentialPardonForm( std::string name, unsigned int grade_to_sign, unsigned int grade_to_exec );
+		PresidentialPardonForm( std::string target );
 		PresidentialPardonForm ( const PresidentialPardonForm &obj );
-		PresidentialPardonForm & operator=(const PresidentialPardonForm &obj);
 
-	// 	void			beSigned( const Bureaucrat &b);
-	// 	std::string		getName( void ) const ;
-	// 	unsigned int	getGrade_sign( void ) const ;
-	// 	unsigned int	getGrade_exec( void ) const ;
-	// 	bool			getSigned( void ) const ;
-
-	// class GradeTooHighException : public std::exception
-	// {
-	// 	public :
-
-	// 	virtual const char * what( void )  const throw();
-
-	// };
-
-	// class GradeTooLowException : public std::exception
-	// {
-	// 	public :
-	// 	virtual const char * what( void )  const throw();
-	// };
+		void	execute( Bureaucrat const & executor ) const;
 };
-
-std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& obj);
 
 #endif

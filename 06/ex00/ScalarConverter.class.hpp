@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                       :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,27 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_CLASS_HPP
-# define BRAIN_CLASS_HPP
+#ifndef SCALARCONVERTER_CLASS_HPP
+# define SCALARCONVERTER_CLASS_HPP
 
 # include <iostream>
-# include "Animal.class.hpp"
+# define CONS 0
 
-class Brain
+class ScalarConverter
 {
-	public:
+	private :
 
-		Brain( void );
-		~Brain( void );
-		Brain ( const Brain &obj );
-		Brain & operator=(const Brain &obj);
-
-		void		getIdea( void ) const;
-		void		setIdea( std::string idea );
+		ScalarConverter ( const ScalarConverter &obj );
+		ScalarConverter & operator=(const ScalarConverter &obj);
+		ScalarConverter( void );
+		virtual ~ScalarConverter( void );
 		
-	protected:
-		std::string		_ideas[100];
-
+	public:
+		static void convert( std::string string );
 };
+
 
 #endif

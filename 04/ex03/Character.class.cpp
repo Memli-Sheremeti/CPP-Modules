@@ -12,15 +12,26 @@
 
 #include "Character.class.hpp"
 
+AMateria* Character::throw_iventory( int idx )
+{
+	if (idx < 0 || idx > 3)
+		return NULL;
+	else if (this->_inventory[idx])
+	{
+		std::cout << this->getName() << " has throw *" << _inventory[idx]->getType()
+		<< "*, place at the " << idx << " position of the inventory..."
+		<< std::endl;
+		return (_inventory[idx]);
+	}
+	return NULL;
+}
+
 void	Character::unequip( int idx )
 {
 	if (idx < 0 || idx > 3)
 		return ;
 	else if (this->_inventory[idx])
-	{
-		// delete _inventory[idx];
 		_inventory[idx] = 0;
-	}
 	return ;
 }
 

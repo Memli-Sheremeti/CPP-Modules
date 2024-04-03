@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                       :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,27 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_CLASS_HPP
-# define BRAIN_CLASS_HPP
+#ifndef INTERN_CLASS_HPP
+# define INTERN_CLASS_HPP
 
 # include <iostream>
-# include "Animal.class.hpp"
+# include "AForm.class.hpp"
+# define CONS 0
 
-class Brain
+class AForm;
+
+class Intern
 {
+	private:
+
+		Intern ( const Intern &obj );
+		Intern & operator=(const Intern &obj);
+
 	public:
 
-		Brain( void );
-		~Brain( void );
-		Brain ( const Brain &obj );
-		Brain & operator=(const Brain &obj);
+		Intern( void );
+		virtual ~Intern( void );
 
-		void		getIdea( void ) const;
-		void		setIdea( std::string idea );
-		
-	protected:
-		std::string		_ideas[100];
+		AForm *RobotomyRequestForm_creation( std::string target ) const;
+		AForm *PresidentialPardonForm_creation(std::string target) const;
+		AForm *ShrubberyCreationForm_creation(std::string target) const;
+		AForm * makeForm( std::string name_form, std::string target_form );
 
+	class	NotaForm : public std::exception
+	{
+		public :
+		virtual const char * what( void ) const throw();
+	};
 };
 
 #endif

@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 15:54:36 by mshereme          #+#    #+#             */
-/*   Updated: 2024/03/18 15:36:19 by mshereme         ###   ########.fr       */
+/*   Created: 2024/03/19 14:27:51 by mshereme          #+#    #+#             */
+/*   Updated: 2024/04/03 16:32:01 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_CLASS_HPP
-# define BRAIN_CLASS_HPP
+#include "ScalarConverter.class.hpp"
 
-# include <iostream>
-# include "Animal.class.hpp"
-
-class Brain
+int main(int ac, char **av)
 {
-	public:
+	if (ac < 2)
+		return 1;
+	ScalarConverter::convert(av[1]);
 
-		Brain( void );
-		~Brain( void );
-		Brain ( const Brain &obj );
-		Brain & operator=(const Brain &obj);
-
-		void		getIdea( void ) const;
-		void		setIdea( std::string idea );
-		
-	protected:
-		std::string		_ideas[100];
-
-};
-
-#endif
+	return 0;
+}

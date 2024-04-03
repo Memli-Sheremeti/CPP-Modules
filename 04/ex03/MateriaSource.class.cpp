@@ -17,9 +17,9 @@ void	MateriaSource::learnMateria(AMateria*	m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (!this->_inventory[i])
+		if (!this->_set[i])
 		{
-			this->_inventory[i] = m;
+			this->_set[i] = m;
 			return ;
 		}
 	}
@@ -31,8 +31,8 @@ AMateria* MateriaSource::createMateria( std::string const & type ) const
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i] && this->_inventory[i]->getType() == type )
-			return (this->_inventory[i]->clone());
+		if (this->_set[i] && this->_set[i]->getType() == type )
+			return (this->_set[i]->clone());
 	}
 	return (NULL);
 }
@@ -43,12 +43,12 @@ MateriaSource& MateriaSource::operator=(const MateriaSource & obj )
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			if (this->_inventory[i])
-				delete this->_inventory[i];
-			if (obj._inventory[i])
-				this->_inventory[i] = obj._inventory[i]->clone();
+			if (this->_set[i])
+				delete this->_set[i];
+			if (obj._set[i])
+				this->_set[i] = obj._set[i]->clone();
 			else
-				this->_inventory[i] = 0;
+				this->_set[i] = 0;
 		}
 	}
 	return (*this);
@@ -60,10 +60,10 @@ MateriaSource::MateriaSource( const MateriaSource & obj )
 		std::cout << "MateriaSource : Copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		if (obj._inventory[i])
-			this->_inventory[i] = obj._inventory[i]->clone();
+		if (obj._set[i])
+			this->_set[i] = obj._set[i]->clone();
 		else
-			this->_inventory[i] = 0;
+			this->_set[i] = 0;
 	}
 	return ;
 }
@@ -71,7 +71,7 @@ MateriaSource::MateriaSource( const MateriaSource & obj )
 MateriaSource::MateriaSource( void )
 {
 	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = 0;
+		this->_set[i] = 0;
 	if (CONS)
 		std::cout << "MateriaSource : Constructor called" << std::endl;
 	return ;
@@ -81,8 +81,8 @@ MateriaSource::~MateriaSource( void )
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i])
-			delete this->_inventory[i];
+		if (this->_set[i])
+			delete this->_set[i];
 	}
 	if (CONS)
 		std::cout << "MateriaSource : Destructor called" << std::endl;

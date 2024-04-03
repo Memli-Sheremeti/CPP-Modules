@@ -15,7 +15,7 @@
 
 # include <iostream>
 # ifndef CONS
-#  define CONS 0
+#  define CONS 1
 # endif
 
 class Animal

@@ -31,7 +31,7 @@ class MateriaSource : public IMateriaSource
 		AMateria*	createMateria( std::string const & type ) const;
 
 	private :
-		AMateria *_inventory[4];
+		AMateria *_set[4];
 };
 
 #endif
