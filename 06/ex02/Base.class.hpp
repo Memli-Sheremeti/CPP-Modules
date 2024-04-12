@@ -14,19 +14,21 @@
 # define BASE_CLASS_HPP
 
 # include <iostream>
+# include <iomanip>
+
 # define CONS 0
 
 class Base
 {
-	protected:
-		Base( void );
-	
 	public :
-		virtual ~Base( void );
-		Base * generate( void );
-		void	identify( Base* p);
-		void	identify( Base & p);
-};
 
+		Base( void );
+		class BaseWrong : public std::exception
+		{
+			public :
+				const char * what() const throw();
+		};	
+		virtual ~Base( void );
+};
 
 #endif

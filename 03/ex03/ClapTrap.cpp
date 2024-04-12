@@ -51,7 +51,7 @@ void	ClapTrap::beRepaired( unsigned int amout )
 	if (this->_energy_pts && this->_hit_pts)
 	{
 		std::cout << "ClapTrap "
-		<< this->_name << " repaired itslef of " << amout << " !!!" << std::endl;
+		<< this->_name << " repaired itslef of " << amout << " +++++ " << this->_energy_pts << " !!!" << std::endl;
 		this->_energy_pts -= 1;
 		this->_hit_pts += amout;
 		std::cout << "ClapTrap "

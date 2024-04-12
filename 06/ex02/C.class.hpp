@@ -18,9 +18,6 @@
 
 class C : public Base
 {
-	private :
-		C( void );
-		~C( void );	
 };
 
 

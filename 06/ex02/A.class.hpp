@@ -14,15 +14,10 @@
 # define A_CLASS_HPP
 
 # include "Base.class.hpp"
-# include <iostream>
-# define CONS 0
 
 class A : public Base
 {
-	private :
-		A( void );
-		virtual ~A( void );
-	
+
 };
 
 

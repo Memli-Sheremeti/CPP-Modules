@@ -11,6 +11,16 @@
 /* ************************************************************************** */
 
 #include "Base.class.hpp"
+#include "A.class.hpp"
+#include "B.class.hpp"
+#include "C.class.hpp"
+#include <ctime>
+#include <iomanip>
+
+Base::Base( void )
+{
+	return ;
+}
 
 Base::~Base( void )
 {
@@ -19,8 +29,7 @@ Base::~Base( void )
 	return ;
 }
 
-
-Base * Base::generate( void )
+const char * Base::BaseWrong::what() const throw()
 {
-
+	return ("BASE : Error");
 }

@@ -6,10 +6,6 @@
 
 class B : public Base
 {
-	private :
-	
-		B( void );
-		virtual ~B( void );
 };
 
 

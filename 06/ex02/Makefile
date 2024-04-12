@@ -14,8 +14,8 @@ NAME		=	ScalarConverter
 CXX			=	c++
 FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRCS		=	main.cpp 					\
-				ScalarConverter.class.cpp	\
+SRCS		=	main.cpp		\
+				Base.class.cpp	\
 
 OBJS		=	$(SRCS:.cpp=.o)
 

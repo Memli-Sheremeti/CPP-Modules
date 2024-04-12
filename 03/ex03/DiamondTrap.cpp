@@ -47,6 +47,8 @@ DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), Sc
 	this->_att_dmg =  FragTrap::_att_dmg;
 	if (CONS)
 		std::cout << "DT constructor called" << std::endl;
+	std::cout << "energy " << this->_energy_pts << std::endl;
+
 	return ;
 }
 
