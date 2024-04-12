@@ -10,19 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_CLASS_HPP
-# define BASE_CLASS_HPP
+#ifndef C_CLASS_HPP
+# define C_CLASS_HPP
 
 # include <iostream>
-# define CONS 0
+# include "Base.class.hpp"
 
-class Base
+class C : public Base
 {
-	protected:
-		static void convert( std::string string );
-	
-	public :
-		virtual ~Base( void );
+	private :
+		C( void );
+		~C( void );	
 };
 
 

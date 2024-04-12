@@ -20,14 +20,9 @@
 class A : public Base
 {
 	private :
-
-		A ( const A &obj );
-		A & operator=(const A &obj);
 		A( void );
 		virtual ~A( void );
-
-	public:
-		static void convert( std::string string );
+	
 };
 
 

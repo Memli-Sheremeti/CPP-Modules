@@ -19,10 +19,13 @@
 class Base
 {
 	protected:
-		static void convert( std::string string );
+		Base( void );
 	
 	public :
 		virtual ~Base( void );
+		Base * generate( void );
+		void	identify( Base* p);
+		void	identify( Base & p);
 };
 
 
