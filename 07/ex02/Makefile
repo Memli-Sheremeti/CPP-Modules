@@ -6,11 +6,11 @@
 #    By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 13:07:03 by mshereme          #+#    #+#              #
-#    Updated: 2024/04/03 16:16:20 by mshereme         ###   ########.fr        #
+#    Updated: 2024/04/15 09:06:14 by mshereme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	iter
+NAME		=	array
 CXX			=	c++
 FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
