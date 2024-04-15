@@ -4,13 +4,14 @@
 # include <iostream>
 # include <algorithm>
 # include <vector>
+# include <limits>
 
 class Span
 {
 	private :
 
-	std::vector<unsigned int> _number;
-
+	std::vector<unsigned int>	_number;
+	unsigned int				_size;
 
 	public :
 
