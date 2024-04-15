@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:45:14 by mshereme          #+#    #+#             */
-/*   Updated: 2024/04/15 11:16:07 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/04/15 14:49:41 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,25 @@ int main(void)
 	std::for_each(test.begin(), test.end(), display);
 	try
 	{
-		it = easyfind(test, 3);
+		it = easyFind(test, 3);
 		std::cout << "EASY FIND : " << *it << std::endl;
 	}
-	catch(...) {}
+	catch(...) { std::cerr << "ERROR" << std::endl;}
 	try
 	{
-		it = easyfind(test, 5);
+		it = easyFind(test, 5);
 		std::cout << "EASY FIND : " << *it << std::endl;
 	}
 	catch(...) { std::cerr << "ERROR" << std::endl; }
 	try
 	{
-		it = easyfind(test, 0);
+		it = easyFind(test, 0);
 		std::cout << "EASY FIND : " << *it << std::endl;
 	}
 	catch(...) {std::cerr << "ERROR" << std::endl;}
 	try
 	{
-		it = easyfind(test, 1);
+		it = easyFind(test, 1);
 		std::cout << "EASY FIND : " << *it << std::endl;
 	}
 	catch(...) {std::cerr << "ERROR" << std::endl;}

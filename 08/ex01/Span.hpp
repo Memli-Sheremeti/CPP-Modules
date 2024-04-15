@@ -5,6 +5,8 @@
 # include <algorithm>
 # include <vector>
 # include <limits>
+# include <cmath>
+# include <numeric>
 
 class Span
 {
@@ -24,6 +26,7 @@ class Span
 	void	addNumber( unsigned int n );
 	unsigned int shortestSpan( void );
 	unsigned int longestSpan( void );
+	void	addRandomNum( unsigned int limit );
 };
 
 #endif

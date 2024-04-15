@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:35:47 by mshereme          #+#    #+#             */
-/*   Updated: 2024/04/15 11:16:20 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/04/15 14:48:41 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,15 @@
 # include <cstdlib>
 
 template <typename T>
-typename T::iterator easyfind( T & data, int x)
+typename T::iterator easyFind( T & data, int x)
 {
 	typename T::iterator it;
 
-	it = data.begin();
-	while (it != data.end())
-	{
-		if (*it == x)
-			return (it);
-		it++;
-	}
-	throw std::runtime_error("Error : not finding");
+	it = std::find(data.begin(), data.end(), x);
+	if (it == data.end())
+		throw std::logic_error("Error : not finding");
+	else
+		return (it);
 }
 
 # endif
