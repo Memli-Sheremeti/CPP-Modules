@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 08:40:26 by mshereme          #+#    #+#             */
-/*   Updated: 2024/04/17 13:22:15 by mshereme         ###   ########.fr       */
+/*   Created: 2024/04/15 14:53:11 by mshereme          #+#    #+#             */
+/*   Updated: 2024/04/17 17:27:34 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATERVER_CPP
-# define WHATERVER_CPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
 # include <iostream>
+# include <stack>
+# include <algorithm>
+# include <limits>
+# include <cmath>
+# include <iterator>
 
-template <typename T> T min( T a, T b)
+template <typename T>
+class MutantStack : public std::stack<T>
 {
-    return ( a < b  ? a : b);
-}
+	public :
 
-template <typename T> T max( T a, T b)
-{
-    return ( a > b  ? a : b);
-}
+	MutantStack(void) {}
+	~MutantStack ( void ) {}
+	MutantStack( MutantStack const & obj );
+	MutantStack & operator=( MutantStack const & obj );
 
-template <typename T> void swap( T &a, T &b)
-{
-    T c;
-
-    c = b;
-    b = a;
-    a = c;
-    return ;
-}
+	class Iter
+};
 
 #endif

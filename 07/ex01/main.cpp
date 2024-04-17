@@ -13,11 +13,6 @@
 #include <iostream>
 #include "iter.hpp"
 
-void    print( int x )
-{
-    std::cout << x << std::endl;
-    return ;
-}
 
 void	add( int & y )
 {
@@ -27,10 +22,9 @@ void	add( int & y )
 
 int main( void )
 {
-    int arr[3] = {3, 0, 5};
-
-    ft_iter(arr, 3, print);
-	ft_iter(arr, 3, add);
-	ft_iter(arr, 3, print);
-    return (0);
+    int tab[] = { 0, 1, 2, 3, 4 }; // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+    Awesome tab2[5];
+    iter( tab, 5, print );
+    iter( tab2, 5, print );
+    return 0;
 }

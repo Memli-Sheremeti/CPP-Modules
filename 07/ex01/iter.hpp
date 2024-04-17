@@ -15,9 +15,36 @@
 
 # include <iostream>
 
-template <typename T, typename U> void ft_iter(T *arr, size_t size, U fct)
+template <typename T>
+void    iter(T *arr, size_t size, void (*f)(T &))
 {
     for (size_t i = 0; i < size; i++)
-        fct(arr[i]);
+        f(arr[i]);
 }
+
+template <typename T>
+void    iter(T *arr, size_t size, void (*f)(T const &))
+{
+    for (size_t i = 0; i < size; i++)
+        f(arr[i]);
+}
+
+
+class Awesome
+{
+    public:
+    
+    Awesome( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+    
+    private:
+    int _n;
+};
+
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+
+template< typename T >
+void print( T const & x ) { std::cout << x << std::endl; return; }
+
+
 #endif
