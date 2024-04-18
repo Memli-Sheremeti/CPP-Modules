@@ -6,16 +6,15 @@
 #    By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 13:07:03 by mshereme          #+#    #+#              #
-#    Updated: 2024/04/15 12:37:15 by mshereme         ###   ########.fr        #
+#    Updated: 2024/04/18 15:24:29 by mshereme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Span
+NAME		=	mutan
 CXX			=	c++
 FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRCS		=	main.cpp \
-				Span.cpp
+SRCS		=	main.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
