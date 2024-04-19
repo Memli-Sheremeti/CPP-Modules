@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 14:53:11 by mshereme          #+#    #+#             */
-/*   Updated: 2024/04/18 17:11:02 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/04/19 09:14:43 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ class MutantStack : public std::stack<T>
 {
 	public :
 
-	MutantStack(void) {}
+	MutantStack(void) : std::stack<T>() {}
 	~MutantStack ( void ) {}
-	MutantStack( MutantStack const & obj );
-	MutantStack & operator=( MutantStack const & obj );
-
+	MutantStack( MutantStack const & obj ) : std::stack<T>(obj) {}
+	MutantStack & operator=( const MutantStack  & obj ) { *this->c = obj.c; return (*this); };
 	class iterator : public std::iterator<
 								std::bidirectional_iterator_tag,
 								T,
@@ -53,13 +52,30 @@ class MutantStack : public std::stack<T>
 		iterator & operator--() { m_ptr++; return (*this); }
 		iterator operator--( int ) { iterator old = *this; --(*this); return (old); }
 
-		bool operator==(iterator& obj) { return ( *m_ptr == *(obj.m_ptr) ? true : false); };
-		bool operator!=(iterator& obj) { return ( *m_ptr != *(obj.m_ptr) ? true : false); };
+		bool operator==(iterator& obj) { return ( m_ptr == obj.m_ptr ? true : false); };
+		bool operator!=(iterator& obj) { return ( m_ptr != obj.m_ptr ? true : false); };
 
 	};
 
 	iterator begin() { return iterator( &this->c.back() ); };
 	iterator end() { return iterator( &this->c.front() - 1 ); };
 };
+
+// template <typename T>
+// MutantStack<T>::MutantStack( const MutantStack  & obj )
+// {
+// 	*this = obj;
+// 	return ;
+// }
+
+// template <typename T>
+// MutantStack<T> & MutantStack<T>::operator=( MutantStack const & obj )
+// {
+// 	if (this != &obj)
+// 	{
+// 		*this->c = obj.c;
+// 	}
+// 	return (*this);
+// }
 
 #endif
