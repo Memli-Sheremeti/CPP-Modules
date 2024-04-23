@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:45:14 by mshereme          #+#    #+#             */
-/*   Updated: 2024/04/19 16:19:26 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:04:14 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,11 @@ int main( int ac, char **av )
 	if (ac != 2 || ft_check_file(av))
 		return (std::cerr << "Error : could not open file." << std::endl, 1);
 
-	BitcoinExchange file_input(av[1]);
+	BitcoinExchange file_input;
 
-	ft_display_file(DATA);
+	// ft_display_file(av[1]);
+
+	file_input.setFilesValue();
+	file_input.displayFileRes(av[1]);
 	return (0);
 }

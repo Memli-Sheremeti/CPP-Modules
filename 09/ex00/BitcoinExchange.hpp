@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:35:47 by mshereme          #+#    #+#             */
-/*   Updated: 2024/04/19 16:19:09 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:18:32 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 # define BITCOIN_EXCHANGE_HPP
 
 # include <iostream>
+# include <stdio.h>
+# include <string.h>
 # include <fstream>
 # include <sstream>
 # include <iomanip>
 # include <algorithm>
 # include <map>
-# include <vector>
+# include <ctime>
 
 # define DATA "cpp_09/data.csv"
 
@@ -29,16 +31,18 @@ class BitcoinExchange
 
 	std::map<std::string, double> tab;
 
-	BitcoinExchange( void ) { return ; }
 	BitcoinExchange( BitcoinExchange const & obj );
 	BitcoinExchange & operator=(BitcoinExchange const & obj);
 
 	public :
 
-	BitcoinExchange( char *string) { (void) string; return; }
+
+	BitcoinExchange( void ) { return ; }
 	~BitcoinExchange() { return ; }
 
-
+	std::map<std::string, double> getFilesValue( void ) const;
+	void	setFilesValue( void );
+	void	displayFileRes( std::string data );
 };
 
 # endif
