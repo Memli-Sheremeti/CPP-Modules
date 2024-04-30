@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:35:47 by mshereme          #+#    #+#             */
-/*   Updated: 2024/04/25 14:29:33 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/04/24 14:07:06 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOIN_EXCHANGE_HPP
-# define BITCOIN_EXCHANGE_HPP
+#ifndef RPN_HPP
+# define RPN_HPP
 
 # include <iostream>
 # include <stdio.h>
@@ -20,29 +20,27 @@
 # include <sstream>
 # include <iomanip>
 # include <algorithm>
-# include <map>
+# include <stack>
 # include <ctime>
 
-# define DATA "cpp_09/data.csv"
-
-class BitcoinExchange
+class RPN
 {
 	private :
 
-	std::map<std::string, double> tab;
+	std::stack<int>			stack;
+	long						x;
+	long						y;
 
-	BitcoinExchange( BitcoinExchange const & obj );
-	BitcoinExchange & operator=(BitcoinExchange const & obj);
-	void	setFilesValue( void );
+	RPN( void ) : x(0), y(0) {return ; }
+	RPN( RPN const & obj );
+	RPN & operator=(RPN const & obj);
 
 	public :
 
+	RPN( std::string str );
+	~RPN() { return ; }
 
-	BitcoinExchange( void );
-	~BitcoinExchange() { return ; }
-
-	std::map<std::string, double> getFilesValue( void ) const;
-	void	displayFileRes( std::string data );
+	void	getRes( void ) const;
 };
 
 # endif

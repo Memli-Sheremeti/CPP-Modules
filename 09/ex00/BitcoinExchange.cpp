@@ -6,13 +6,28 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:28:37 by mshereme          #+#    #+#             */
-/*   Updated: 2024/04/23 16:14:14 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/04/25 14:32:20 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-int		check_date( std::string line, std::map<std::string, double> & tab)
+static int		ft_isnum( std::string num )
+{
+	int	sign;
+
+	sign = 0;
+	for (std::string::iterator it = num.begin(); it != num.end(); ++it)
+	{
+		if ((isdigit(*it) == 0 && *it != '-' && isspace(*it) == 0 && *it != '+' && *it != '.') || sign > 1)
+			return (1);
+		if (*it == '-' || *it == '+')
+			sign++;
+	}
+	return (0);
+}
+
+static int	check_date( std::string line, std::map<std::string, double> & tab)
 {
 	struct tm tm;
 	std::map<std::string, double>::iterator it = tab.begin();
@@ -29,19 +44,19 @@ int		check_date( std::string line, std::map<std::string, double> & tab)
 	return (1);
 }
 
-int		check_value( std::string line, std::map<std::string, double> & tab)
+static int	check_value( std::string line, std::map<std::string, double> & tab)
 {
-	std::map<std::string, double>::iterator it;
-	double value;
-
-	std::string date;
-	std::istringstream date_data(line);
+	std::map<std::string, double>::iterator	it;
+	std::string								date;
+	std::istringstream						date_data(line);
+	double									value;
 
 	date_data >> date;
 	date = date.substr(0, 10);
 	std::string pos;
 	pos = line.substr(12, line.size());
-	if (pos.) // A checker si il y a autre chose qu'un num ou whites space ou tiret ou point
+	if (ft_isnum(pos))
+		return (std::cout << "Error: is not a number." << std::endl, 1);
 	std::istringstream value_data(pos);
 	value_data >> value;
 	if ( 0 <= value && value <= 1000)
@@ -49,6 +64,7 @@ int		check_value( std::string line, std::map<std::string, double> & tab)
 		it = tab.upper_bound(date);
 		it--;
 		std::cout << date << " => " << value << " = " << it->second * value << std::endl;
+		return (0);
 	}
 	else if (value < 0)
 		std::cout << "Error: not a positive number." << std::endl;
@@ -66,7 +82,7 @@ void	BitcoinExchange::setFilesValue( void )
 {
 	std::string date;
 	std::string pos;
-	double value;
+ double value;
 	std::ifstream infile( DATA );
 
 	if (!infile.is_open())
@@ -74,7 +90,6 @@ void	BitcoinExchange::setFilesValue( void )
 		std::cerr << "Couldn't read file: " << DATA << std::endl;
 		return ;
 	}
-
 	std::getline(infile, date);
 	for (std::string line; std::getline(infile, line);)
 	{
@@ -92,7 +107,7 @@ void	BitcoinExchange::setFilesValue( void )
 
 void	BitcoinExchange::displayFileRes( std::string data )
 {
-	// for (std::map<std::string,double>::iterator it=tab.begin(); it!=tab.end(); ++it)
+	// for (std::map<std::string, double>::iterator it=tab.begin(); it!=tab.end(); ++it)
     // 	std::cout << it->first << " => " << it->second << '\n';
 
 	std::ifstream infile( data.c_str() );
@@ -115,5 +130,11 @@ void	BitcoinExchange::displayFileRes( std::string data )
 		}
 		check_value(line, this->tab);
 	}
+	return ;
+}
+
+BitcoinExchange::BitcoinExchange( void )
+{
+	this->setFilesValue();
 	return ;
 }
