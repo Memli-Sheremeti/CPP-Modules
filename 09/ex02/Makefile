@@ -6,14 +6,14 @@
 #    By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 13:07:03 by mshereme          #+#    #+#              #
-#    Updated: 2024/04/25 17:27:45 by mshereme         ###   ########.fr        #
+#    Updated: 2024/04/30 11:41:34 by mshereme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	PmergeMe
 CXX			=	c++
-# FLAGS		=	-Wall -Wextra -Werror -std=c++98
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror -std=c++98
+# FLAGS		=	-Wall -Wextra -Werror
 
 SRCS		=	main.cpp		\
 				PmergeMe.cpp	\

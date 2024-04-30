@@ -6,7 +6,7 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:45:14 by mshereme          #+#    #+#             */
-/*   Updated: 2024/04/25 17:30:39 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/04/30 14:11:12 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,21 @@
 # include <sstream>
 # include <istream>
 
-bool	ft_comp( unsigned int a, unsigned int b)
+bool ft_comp(unsigned int a, unsigned int b)
 {
-	return (a > b);
+	return (a < b);
 }
+
+
+
+// template<typename T>
+// struct Less
+// {
+//     bool operator()(const T& lhs, const T& rhs) const
+//     {
+//         return lhs < rhs;
+//     }
+// };
 
 template<typename T> void display( T & tab)
 {
@@ -53,17 +64,9 @@ int main( int ac, char **av )
 		tab.push_back(x);
 	}
 
-	// display(tab);
-	group_iterator<std::vector<unsigned int>::iterator> grp_it( tab.begin(), tab.size());
+	merge_insertion_sort_impl( make_group_iterator(tab.begin(), 1), make_group_iterator(tab.end(), 1), ft_comp);
 
-	// for (size_t i = 0; i < grp_it.size(); i++)
-	// 	std::cout << *((grp_it.base()) + i) << std::endl;
+	std::cout << "##########################" << std::endl;
 
-	std::cout << grp_it[0] << std::endl;
-
-	merge_insertion_sort_impl( grp_it, grp_it, ft_comp);
-
-	for (size_t i = 0; i < grp_it.size(); i++)
-		std::cout << *((grp_it.base()) + i) << std::endl;
 	return (0);
 }
