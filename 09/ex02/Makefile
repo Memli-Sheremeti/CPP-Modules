@@ -6,7 +6,7 @@
 #    By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 13:07:03 by mshereme          #+#    #+#              #
-#    Updated: 2024/04/30 11:41:34 by mshereme         ###   ########.fr        #
+#    Updated: 2024/05/06 13:25:48 by mshereme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@ CXX			=	c++
 FLAGS		=	-Wall -Wextra -Werror -std=c++98
 # FLAGS		=	-Wall -Wextra -Werror
 
-SRCS		=	main.cpp		\
-				PmergeMe.cpp	\
+SRCS		=	main.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

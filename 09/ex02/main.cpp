@@ -6,67 +6,100 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:45:14 by mshereme          #+#    #+#             */
-/*   Updated: 2024/04/30 14:11:12 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:47:47 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "PmergeMe.hpp"
-#include "test.hpp"
-# include <iostream>
-# include <algorithm>
-# include <ctime>
-# include <iomanip>
-# include <vector>
-# include <iterator>
-# include <sstream>
-# include <istream>
+#include "PmergeMe.hpp"
+#include <stdio.h>
+#include <sys/time.h>
 
-bool ft_comp(unsigned int a, unsigned int b)
+long long int	ft_timer_set(void)
 {
-	return (a < b);
+	struct timeval	tv;
+	long long int	timer;
+
+	gettimeofday(&tv, NULL);
+	timer = tv.tv_usec;
+	return (timer);
 }
 
-
-
-// template<typename T>
-// struct Less
-// {
-//     bool operator()(const T& lhs, const T& rhs) const
-//     {
-//         return lhs < rhs;
-//     }
-// };
-
-template<typename T> void display( T & tab)
+int	ft_get_time( int ac, int start_time)
 {
-	typename T::iterator it = tab.begin();
+	int	current_time;
 
-	std::cout << "[ ";
-	for ( ; it != tab.end(); it++)
+	current_time = ft_timer_set() - start_time;
+
+	std::cout << "Time to process a range of " << ac << " elements with std::vector : " <<
+	current_time << " ms" << std::endl;
+	return (current_time);
+}
+
+int	ft_parsing_number( std::vector<unsigned int> &tab, char **av, int ac)
+{
+	for (int i = 1; i < ac; i++ )
+	{
+		std::string num = av[i];
+		if (num.length() > 10)
+			return (1);
+		for (std::string::iterator it = num.begin(); it != num.end(); it++)
+		{
+			if (!std::isdigit(*it))
+				return (1);
+		}
+		std::istringstream ss(num);
+		unsigned long x;
+		ss >> x;
+		if (x > 4294967295)
+			return (1);
+		tab.push_back(x);
+	}
+	return (0);
+}
+
+void	ft_display( std::vector<unsigned int> &tab )
+{
+	static int i = 0;
+
+	if (!i)
+		std::cout << "Before: ";
+	else
+		std::cout << "After: ";
+
+	for (std::vector<unsigned int>::iterator it = tab.begin(); it != tab.end(); it++)
 	{
 		std::cout << *it << " ";
 	}
-	std::cout << "]" << std::endl;
+	std::cout << std::endl;
+	i++;
 }
 
 int main( int ac, char **av )
 {
 	std::vector<unsigned int> tab;
+	std::vector<unsigned int> tab_1;
 	if (ac == 1)
-		return (0);
-	for (int i = 1; i < ac; i++ )
+		return (2);
+	if (ft_parsing_number(tab, av, ac))
 	{
-		std::string num = av[i];
-		std::istringstream ss(num);
-		unsigned int x;
-
-		ss >> x;
-		tab.push_back(x);
+		std::cerr << "Error" << std::endl;
+		return 3;
 	}
-
-	merge_insertion_sort_impl( make_group_iterator(tab.begin(), 1), make_group_iterator(tab.end(), 1), ft_comp);
-
-	std::cout << "##########################" << std::endl;
+	tab_1 = tab;
+	{
+		int time = ft_timer_set();
+		ft_display(tab);
+		group_iterator<std::vector<unsigned int>::iterator> begin = make_group_iterator(tab.begin(), 1);
+		group_iterator<std::vector<unsigned int>::iterator> end = make_group_iterator(tab.end(), 1);
+		merge_insertion_sort_impl(begin, end);
+		ft_display(tab);
+		ft_get_time(ac + 1, time);
+	}
+	{
+		int time = ft_timer_set();
+		std::sort(tab_1.begin(), tab_1.end());
+		ft_get_time(ac + 1, time);
+	}
 
 	return (0);
 }
