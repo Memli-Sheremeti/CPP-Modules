@@ -6,13 +6,31 @@
 /*   By: mshereme <mshereme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:45:14 by mshereme          #+#    #+#             */
-/*   Updated: 2024/05/06 18:47:47 by mshereme         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:17:04 by mshereme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include <stdio.h>
 #include <sys/time.h>
+
+template <class T>
+void ft_display( T &tab )
+{
+	static int i = 0;
+
+	if (!i)
+		std::cout << "Before: ";
+	else
+		std::cout << "After: ";
+
+	for (typename T::iterator it = tab.begin(); it != tab.end(); it++)
+	{
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+	i++;
+}
 
 long long int	ft_timer_set(void)
 {
@@ -35,7 +53,8 @@ int	ft_get_time( int ac, int start_time)
 	return (current_time);
 }
 
-int	ft_parsing_number( std::vector<unsigned int> &tab, char **av, int ac)
+template <class T>
+int	ft_parsing_number( T &tab, char **av, int ac)
 {
 	for (int i = 1; i < ac; i++ )
 	{
@@ -57,49 +76,56 @@ int	ft_parsing_number( std::vector<unsigned int> &tab, char **av, int ac)
 	return (0);
 }
 
-void	ft_display( std::vector<unsigned int> &tab )
-{
-	static int i = 0;
-
-	if (!i)
-		std::cout << "Before: ";
-	else
-		std::cout << "After: ";
-
-	for (std::vector<unsigned int>::iterator it = tab.begin(); it != tab.end(); it++)
-	{
-		std::cout << *it << " ";
-	}
-	std::cout << std::endl;
-	i++;
-}
 
 int main( int ac, char **av )
 {
 	std::vector<unsigned int> tab;
 	std::vector<unsigned int> tab_1;
+
+	std::deque<unsigned int> tab_deque;
+	std::deque<unsigned int> tab1_deque;
+
+
 	if (ac == 1)
 		return (2);
-	if (ft_parsing_number(tab, av, ac))
+	if (ft_parsing_number(tab, av, ac) || ft_parsing_number(tab_deque, av, ac))
 	{
 		std::cerr << "Error" << std::endl;
 		return 3;
 	}
 	tab_1 = tab;
+	tab1_deque = tab_deque;
 	{
-		int time = ft_timer_set();
-		ft_display(tab);
-		group_iterator<std::vector<unsigned int>::iterator> begin = make_group_iterator(tab.begin(), 1);
-		group_iterator<std::vector<unsigned int>::iterator> end = make_group_iterator(tab.end(), 1);
-		merge_insertion_sort_impl(begin, end);
-		ft_display(tab);
-		ft_get_time(ac + 1, time);
+		{
+			int time = ft_timer_set();
+			ft_display(tab);
+			group_iterator<std::vector<unsigned int>::iterator> begin = make_group_iterator(tab.begin(), 1);
+			group_iterator<std::vector<unsigned int>::iterator> end = make_group_iterator(tab.end(), 1);
+			merge_insertion_sort_impl(begin, end);
+			ft_display(tab);
+			ft_get_time(ac + 1, time);
+		}
+		{
+			int time = ft_timer_set();
+			std::sort(tab_1.begin(), tab_1.end());
+			ft_get_time(ac + 1, time);
+		}
 	}
 	{
-		int time = ft_timer_set();
-		std::sort(tab_1.begin(), tab_1.end());
-		ft_get_time(ac + 1, time);
+		{
+			int time = ft_timer_set();
+			ft_display(tab_deque);
+			group_iterator<std::deque<unsigned int>::iterator> be = make_group_iterator(tab_deque.begin(), 1);
+			group_iterator<std::deque<unsigned int>::iterator> ed = make_group_iterator(tab_deque.end(), 1);
+			mgsl(be, ed);
+			ft_display(tab_deque);
+			ft_get_time(ac + 1, time);
+		}
+		{
+			int time = ft_timer_set();
+			std::sort(tab1_deque.begin(), tab1_deque.end());
+			ft_get_time(ac + 1, time);
+		}
 	}
-
 	return (0);
 }
